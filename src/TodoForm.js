@@ -14,14 +14,17 @@ export default class CreateTodo extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = async (event) => {
+    const input = event.target;
+    const value = input.value
+    const name = input.name
+    
     this.setState({
-      title: event.target.title,
-      description: event.target.description
+      [name]: value
     });
   }
   
-  handleSubmit= async (event) => {
+  handleSubmit = async (event) => {
     console.log('New todo submitted');
     event.preventDefault();
 
@@ -41,12 +44,12 @@ export default class CreateTodo extends Component {
         <form className='Todo-form'>
           <label>
             Title:
-            <input type="text" value={ this.state.title } />
+            <input name='title' type="text" value={ this.state.title } onChange={this.handleChange} />
           </label>
           
           <label>
             Description:
-            <input type="text" value={ this.state.description } />
+            <input name='description' type="text" value={ this.state.description } onChange={this.handleChange} />
           </label>
           <button onClick={this.handleSubmit}>Add</button>
         </form>
