@@ -5,6 +5,7 @@
 DONE---3. create delete button for each todo item 
 
 4. create update button for each todo item
+this is going to require making a form
 
 ---NEXT---
 5. consider changing state first so it looks like it loads really quick, while
