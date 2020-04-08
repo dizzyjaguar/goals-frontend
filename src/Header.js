@@ -11,6 +11,7 @@ export default class Header extends Component {
         Hello There
         <Link to='/'>Home</Link>
         <Link to='/todos'>Todos</Link>
+        <Link to='/about'>About</Link>
       </div>
     )
   }
