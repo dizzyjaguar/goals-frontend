@@ -10,6 +10,7 @@ export default class TodoItem extends Component {
       <div className='TodoItem'>
         <h3 className='Todo-title'> {todo.title} </h3>
         <p className='Todo-desc'> {todo.description} </p>
+        <button id='Todo-update' onClick={() => this.props.handleUpdate(this.props.todo)}>Update</button>
         <button id='Todo-delete' onClick={() => this.props.handleDelete(this.props.todo)}>Delete</button>
       </div>
     )
