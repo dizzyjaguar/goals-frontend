@@ -20,31 +20,11 @@ export default class TodoList extends Component {
     })
   }
 
-  // handleClick = async (e) => {
-  //   e.preventDefault();
+  handleDelete = async (todo) => {
+    await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
+    console.log('this delete function is firing')
 
-  //   const newTodo = {
-  //     title: this.state.titleInput,
-  //     description: this.state.descInput,
-  //     complete: false
-  //   };
-
-    
-  //   const data = await request.post('http://localhost:7890/api/v1/todos', {
-  //     title: 'hellllo',
-  //     description: 'test to see if my states not updating',
-  //     complete: false
-  //   }
-  //   )
-
-  // }
-
-  // handleInput = (e) => {
-  //   this.setState({  
-  //       titleInput: e.target.value,
-  //       descInput: e.target.value
-  //   })
-  // };
+  }
 
   render() {
     return (
@@ -59,7 +39,11 @@ export default class TodoList extends Component {
 
       <h2>Hey this is the List Component</h2>
         {
-          this.state.todos.map(todo => <TodoItem todo={todo} /> )
+          this.state.todos.map(todo => <TodoItem 
+          todo={ todo }          
+          handleDelete={this.handleDelete}
+
+           /> )
         }
       </div>
     )

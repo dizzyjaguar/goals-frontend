@@ -26,7 +26,7 @@ export default class CreateTodo extends Component {
   
   handleSubmit = async (event) => {
     console.log('New todo submitted');
-    event.preventDefault();
+    // event.preventDefault();
 
     const newTodo = {
       title: this.state.title,
