@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TodoItem from './TodoItem';
 import request from 'superagent';
 
+
 const getTodoById = (_id) => request.get(`http://localhost:7890/api/v1/todos/${_id}`)
 
 export default class TodoDetail extends Component {
@@ -16,15 +17,24 @@ export default class TodoDetail extends Component {
         todo: data.body
       })
     }
+  }
 
-    console.log(this.state.todo)
+  handleDelete = async (todo) => {
+    await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
+    console.log('delete function is firing')
+    
+    //this way works for class components
+    await this.props.history.push('/todos');
   }
 
   render() {
     return (
       <div className='TodoDetail-div'>
-        <TodoItem todo={ this.state.todo } />
-        
+        <TodoItem 
+        todo={ this.state.todo }
+        handleDelete={this.handleDelete}
+        handleUpdate={this.handleUpdate}
+         />    
       </div>
     )
   }
