@@ -9,12 +9,21 @@ export default class TodoDetail extends Component {
 
   async componentDidMount() {
     const data = await getTodoById(this.props.match.params._id);
-    console.log(this.props.match.params._id);
+    // console.log(data.body);
+
+    if(data.body) {
+      this.setState({
+        todo: data.body
+      })
+    }
+
+    console.log(this.state.todo)
   }
 
   render() {
     return (
-      <div>
+      <div className='TodoDetail-div'>
+        <TodoItem todo={ this.state.todo } />
         
       </div>
     )
