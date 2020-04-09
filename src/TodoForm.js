@@ -44,14 +44,14 @@ export default class CreateTodo extends Component {
         <form className='Todo-form'>
           <label>
             Title:
-            <input name='title' type="text" value={ this.state.title } onChange={this.handleChange} />
+            <input name='title' type="text" value={ this.state.title } onChange={ this.handleChange } />
           </label>
           
           <label>
             Description:
-            <input name='description' type="text" value={ this.state.description } onChange={this.handleChange} />
+            <input name='description' type="text" value={ this.state.description } onChange={ this.handleChange } />
           </label>
-          <button onClick={this.handleSubmit}>Add</button>
+          <button onClick={ this.handleSubmit }>Add</button>
         </form>
       </div>
     )

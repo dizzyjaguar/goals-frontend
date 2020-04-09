@@ -8,6 +8,7 @@ import {
 import Header from './Header';
 import Landing from './Landing';
 import TodoList from './TodoList';
+import TodoDetail from './TodoDetail';
 import About from './About';
 import './App.css';
 
@@ -23,7 +24,9 @@ export default class App extends Component {
           
           <Route exact path='/' component={Landing} />
           <Route exact path='/todos' component={TodoList} />
-          <Route exact paht='/about' component={About} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/todo/:_id' component={TodoDetail} />
+
         </Switch>
         {/* <TodoList /> */}
 

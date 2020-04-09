@@ -11,3 +11,7 @@ this is going to require making a form
 5. consider changing state first so it looks like it loads really quick, while
 actually the request call is happening in the background, but state causes it to 
 look like it changed instantly
+
+6. get rid of react logo on page tab
+
+7. Implement CSS grid before going to deep into styling

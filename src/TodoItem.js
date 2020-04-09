@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 
 export default class TodoItem extends Component {
@@ -8,7 +9,8 @@ export default class TodoItem extends Component {
     const { todo } = this.props;
     return (
       <div className='TodoItem'>
-        <h3 className='Todo-title'> {todo.title} </h3>
+        <Link to={`todo/${todo._id}`}> <h3 className='Todo-title'> {todo.title} </h3>
+        </Link>
         <p className='Todo-desc'> {todo.description} </p>
         <button id='Todo-update' onClick={() => this.props.handleUpdate(this.props.todo)}>Update</button>
         <button id='Todo-delete' onClick={() => this.props.handleDelete(this.props.todo)}>Delete</button>
