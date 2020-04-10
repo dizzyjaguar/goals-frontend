@@ -11,6 +11,8 @@ import TodoList from './TodoList';
 import TodoDetail from './TodoDetail';
 import About from './About';
 import './App.css';
+// only use bootstrap if need be, better to start creating your own css frameworks
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default class App extends Component {
