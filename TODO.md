@@ -7,6 +7,9 @@ DONE---3. create delete button for each todo item
 4. create update button for each todo item
 this is going to require making a form
 <---------------->
+4.1. make a todo be able to be completed, if completed changed the background of the todo to green, and if it isnt completed have the background as blue
+
+
 ---NEXT---(after making update form work)
 5. consider changing state first so it looks like it loads really quick, while
 actually the request call is happening in the background, but state causes it to 
