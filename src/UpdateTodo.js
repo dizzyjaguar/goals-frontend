@@ -10,7 +10,7 @@ export default class UpdateTodo extends Component {
     }
     
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = async (event) => {
@@ -22,6 +22,9 @@ export default class UpdateTodo extends Component {
       [name]: value
     });
   }
+
+  
+
 
   render() {
     return (
