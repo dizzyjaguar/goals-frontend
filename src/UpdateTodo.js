@@ -10,7 +10,7 @@ export default class UpdateTodo extends Component {
     }
     
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = async (event) => {
@@ -21,6 +21,18 @@ export default class UpdateTodo extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  handleSubmit = async (todo) => {
+    console.log('Update Todo sent');
+    
+    const updatedTodo = {
+      title: this.state.title,
+      description: this.state.description,
+      complete: this.state.complete,
+    }
+    
+    await request.patch(`http://localhost:7890/api/v1/todos${todo._id}`)
   }
 
   

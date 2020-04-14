@@ -10,7 +10,7 @@ const getTodoList = () => request.get('http://localhost:7890/api/v1/todos')
 export default class TodoList extends Component {
   state = {
     todos: [],
-    editForm: true
+    editForm: false
   }
 
   loadData = async() => {
@@ -63,11 +63,13 @@ export default class TodoList extends Component {
 
       <h2>Hey this is the List Component</h2>
 
-        {(this.state.editForm)? <h1>true</h1> 
-          : <h1>false</h1>
+      {/* THIS NEEDS TO CONDITIONALLY RENDER THAT TODOS EDIT FORM */}
+        {(this.state.editForm)? <h1>editForm state true</h1> 
+          : <h1>edit form state false</h1>
         }
 
         {
+          
           this.state.todos.map(todo => <TodoItem 
           todo={ todo }          
           handleDelete={this.handleDelete}
