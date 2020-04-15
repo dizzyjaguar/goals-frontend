@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom';
 import request from 'superagent';
 
 
@@ -7,8 +6,9 @@ export default class UpdateTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
-      description: null
+      todo: {},
+      title: props.title || '',
+      description: props.description || ''
     }
     
     this.handleChange = this.handleChange.bind(this);
@@ -21,24 +21,22 @@ export default class UpdateTodo extends Component {
     const todoId = this.props.match.params._id
     const data = await this.getTodoById(todoId)
     const todo = data.body
-    console.log(data.body)
+    console.log(todo.title)
+    this.setState({
+      todo: todo
+    })
+    console.log(this.state)
 
     //-----------
     //NEED TO NOW PASS THE FETCHED DATA INTO STATE AND TO BE THE INTIAL VALUES OF THE FORM!!
-    //-----------
-    
-    // this.setState = {
-    //   title: todo.title,
-    //   description: todo.description,
-    // }
-    
+ 
   }
 
-  handleChange = async (event) => {
-    const input = event.target
+  handleChange = (event) => {
+    const input = event.target;
     const value = input.value
     const name = input.name
-
+    
     this.setState({
       [name]: value
     });
@@ -50,10 +48,10 @@ export default class UpdateTodo extends Component {
     const updatedTodo = {
       title: this.state.title,
       description: this.state.description,
-      complete: this.state.complete,
+      complete: false,
     }
     
-    await request.patch(`http://localhost:7890/api/v1/todos${todo._id}`, updatedTodo)
+    await request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`, updatedTodo)
   }
 
   
@@ -74,7 +72,7 @@ export default class UpdateTodo extends Component {
             <input name='description' type="text" value={ this.state.description } onChange={ this.handleChange } />
           </label>
 
-          <button onClick={() => this.props.handleUpdate(this.props.todo)}>Submit</button>
+          <button onClick={() => this.handleSubmit(this.state.todo)}>Submit</button>
         
 
         </form>
