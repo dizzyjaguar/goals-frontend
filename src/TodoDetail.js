@@ -10,7 +10,7 @@ export default class TodoDetail extends Component {
 
   async componentDidMount() {
     const data = await getTodoById(this.props.match.params._id);
-    // console.log(data.body);
+    // console.log(this.props.match.params);
 
     if(data.body) {
       this.setState({

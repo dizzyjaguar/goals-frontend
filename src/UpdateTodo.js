@@ -2,16 +2,36 @@ import React, { Component } from 'react';
 import Link from 'react-router-dom';
 import request from 'superagent';
 
+
 export default class UpdateTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.title,
-      description: this.props.description
+      title: null,
+      description: null
     }
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  getTodoById = (todoId) => request.get(`http://localhost:7890/api/v1/todos/${todoId}`)
+
+  componentDidMount = async() => {
+    const todoId = this.props.match.params._id
+    const data = await this.getTodoById(todoId)
+    const todo = data.body
+    console.log(data.body)
+
+    //-----------
+    //NEED TO NOW PASS THE FETCHED DATA INTO STATE AND TO BE THE INTIAL VALUES OF THE FORM!!
+    //-----------
+    
+    // this.setState = {
+    //   title: todo.title,
+    //   description: todo.description,
+    // }
+    
   }
 
   handleChange = async (event) => {
@@ -40,7 +60,7 @@ export default class UpdateTodo extends Component {
 
 
   render() {
-    const { todo } = this.props;
+    // const { todo } = this.props;
     return (
       <div>
         <form className='Todo-update-form'>

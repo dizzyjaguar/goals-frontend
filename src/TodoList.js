@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import request from 'superagent';
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
-import UpdateTodo from './UpdateTodo';
+
 
 
 const getTodoList = () => request.get('http://localhost:7890/api/v1/todos')
@@ -54,7 +54,7 @@ export default class TodoList extends Component {
 
   render() {
     
-    console.log(this.state.editForm)
+    // console.log(this.state.editForm)
     
     return (
       <div className='TodoList'>
