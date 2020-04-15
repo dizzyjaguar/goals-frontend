@@ -9,6 +9,7 @@ import Header from './Header';
 import Landing from './Landing';
 import TodoList from './TodoList';
 import TodoDetail from './TodoDetail';
+import UpdateTodo from './UpdateTodo';
 import About from './About';
 import './App.css';
 // only use bootstrap if need be, better to start creating your own css frameworks
@@ -28,6 +29,7 @@ export default class App extends Component {
           <Route exact path='/todos' component={TodoList} />
           <Route exact path='/about' component={About} />
           <Route exact path='/todo/:_id' component={TodoDetail} />
+          <Route exact path='/todo/update/:_id' component={UpdateTodo} />
 
         </Switch>
         {/* <TodoList /> */}

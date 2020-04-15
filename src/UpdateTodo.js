@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import request from 'superagent'
+import React, { Component } from 'react';
+import Link from 'react-router-dom';
+import request from 'superagent';
 
 export default class UpdateTodo extends Component {
   constructor(props) {
@@ -32,13 +33,14 @@ export default class UpdateTodo extends Component {
       complete: this.state.complete,
     }
     
-    await request.patch(`http://localhost:7890/api/v1/todos${todo._id}`)
+    await request.patch(`http://localhost:7890/api/v1/todos${todo._id}`, updatedTodo)
   }
 
   
 
 
   render() {
+    const { todo } = this.props;
     return (
       <div>
         <form className='Todo-update-form'>
@@ -53,6 +55,7 @@ export default class UpdateTodo extends Component {
           </label>
 
           <button onClick={() => this.props.handleUpdate(this.props.todo)}>Submit</button>
+        
 
         </form>
       </div>
