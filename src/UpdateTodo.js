@@ -7,8 +7,8 @@ export default class UpdateTodo extends Component {
     super(props);
     this.state = {
       todo: {},
-      title: props.title || '',
-      description: props.description || ''
+      title: '',
+      description: ''
     }
     
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +23,9 @@ export default class UpdateTodo extends Component {
     const todo = data.body
     console.log(todo.title)
     this.setState({
-      todo: todo
+      todo: todo,
+      title: todo.title,
+      description: todo.description,
     })
     console.log(this.state)
 
