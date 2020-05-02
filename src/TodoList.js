@@ -32,25 +32,25 @@ export default class TodoList extends Component {
     
     await this.loadData()
   }
+  // THIS WAS A POTENTIAL IDEA FOR RENDERING IT IN PLACE BUT DOESNT WORK YET
+  // handleTurnIntoForm = (todo) => {
+  //   if (this.state.editForm === false) {
+  //     this.setState({
+  //       editForm: true
+  //     })
+  //   } else {
+  //     this.setState({
+  //       editForm: false
+  //     })
+  //   }
+  // }
 
-  handleTurnIntoForm = (todo) => {
-    if (this.state.editForm === false) {
-      this.setState({
-        editForm: true
-      })
-    } else {
-      this.setState({
-        editForm: false
-      })
-    }
-  }
+  // handleUpdate = async (todo) => {
+  //   await request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`)
+  //   console.log('update function is firing')
 
-  handleUpdate = async (todo) => {
-    await request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`)
-    console.log('update function is firing')
-
-    await this.loadData()
-  }
+  //   await this.loadData()
+  // }
 
   render() {
     

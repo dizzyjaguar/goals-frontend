@@ -54,9 +54,8 @@ export default class UpdateTodo extends Component {
     }
     
     await request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`, updatedTodo)
-  }
 
-  
+  }
 
 
   render() {
