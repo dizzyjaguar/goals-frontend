@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import TodoItem from './TodoItem';
-import TodoForm from './TodoForm';
+import TodoItem from '../../components/TodoItem/TodoItem';
+import TodoForm from '../../components/CreateTodoForm/CreateTodoForm';
 
 
 
