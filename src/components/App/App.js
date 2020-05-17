@@ -7,13 +7,11 @@ import {
 import Header from '../Header/Header';
 import Landing from '../Landing.js/Landing';
 import TodoList from '../../containers/TodoList/TodoList';
-import TodoDetail from '../TodoDetail/TodoDetail';
 import UpdateTodo from '../../components/UpdateTodoForm/UpdateTodo';
 import About from '../About/About';
 import './App.css';
 import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
-// only use bootstrap if need be, better to start creating your own css frameworks
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function App() {
   return (
