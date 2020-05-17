@@ -1,19 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
-
-export default class TodoItem extends Component {
-
-  render() { 
-    const { todo } = this.props;
-    return (
-      <div className='TodoItem'>
+const TodoItem = ({ todo, handleDelete }) => (
+  <div className='TodoItem'>
         
         {
           window.location.href.includes('todos') 
-          ? <Link to={`todo/${todo._id}`}> <h3 className='Todo-title'> {todo.title} </h3> </Link>
-          
-          : <h3 className='Todo-title'> {todo.title} </h3>
+          ? <Link to={`todo/${todo._id}`}> <h3 className='Todo-title'> {todo.title} </h3> </Link> : <h3 className='Todo-title'> {todo.title} </h3>
         }
 
         <p className='Todo-desc'> {todo.description} </p>
@@ -21,8 +14,10 @@ export default class TodoItem extends Component {
         <Link to={`/todo/update/${todo._id}`}>
             <button>Update</button>
         </Link>
-        <button id='Todo-delete' onClick={() => this.props.handleDelete(this.props.todo)}>Delete</button>
+        <button id='Todo-delete' onClick={() => handleDelete(todo)}>Delete</button>
       </div>
-    )
-  }
-}
+)
+
+
+
+export default TodoItem;
