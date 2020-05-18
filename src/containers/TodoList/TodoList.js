@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import request from 'superagent';
 import TodoItem from '../../components/TodoItem/TodoItem';
-import TodoForm from '../../components/CreateTodoForm/CreateTodoForm';
+import CreateTodoControl from '../../containers/CreateTodoControl/CreateTodoControl';
 import { getTodoList } from '../../services/Todos/todoServices';
 import { useHistory } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ const TodoList = () => {
 
   return (
     <div className='TodoList'>
-      <TodoForm />
+      <CreateTodoControl />
       <h2>Hey this is the List Component</h2>
       {/* THIS NEEDS TO CONDITIONALLY RENDER THAT TODOS EDIT FORM */}
         { (editForm)? <h1>editForm state true</h1> 
