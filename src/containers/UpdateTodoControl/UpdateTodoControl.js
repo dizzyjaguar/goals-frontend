@@ -16,18 +16,23 @@ const UpdateTodoControl = () => {
     if(target.name === 'description') setDescription(target.value);
   }
 
+  //this also might need to change
   const setTodoToUpdate = (_id) => {
     return request.get(`http://localhost:7890/api/v1/todos/${_id}`)
-    .then(setTitle(todo.title), setDescription(todo.description))  
+    // .then( todo => setTitle(todo.title), setDescription(todo.description))  
   }
 
+  //this isnt working!
   useEffect(() => {
     setTodoToUpdate(_id)
     .then(todo => setTodo(todo.body))
-    .then(() => setTitle(todo.title))
+    if(todo) {
+      setTitle(todo.title)
+    }
   }, [])
   
-  console.log(title)
+  //state 
+  console.log(todo, title)
   
   
   return(
