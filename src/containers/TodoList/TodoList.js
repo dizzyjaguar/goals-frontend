@@ -6,9 +6,6 @@ import { getTodoList } from '../../services/Todos/todoServices';
 import { useHistory } from 'react-router-dom';
 
 
-
-// const getTodoList = () => request.get('http://localhost:7890/api/v1/todos')
-
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [editForm, setEditForm] = useState(false)
@@ -22,7 +19,7 @@ const TodoList = () => {
 
   const handleDelete = async (todo) => {
     await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
-    // await (history.goBack())
+    
   }
 
   const todoNodes = todos.map(todo => {
