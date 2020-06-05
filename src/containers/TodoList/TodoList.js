@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
-  const [editForm, setEditForm] = useState(false)
-
+  const [editForm, setEditForm] = useState(false);
+  const [createTodoForm, setCreateTodoForm] = useState(false);
   let history = useHistory();
 
   useEffect(() => {
@@ -19,8 +19,13 @@ const TodoList = () => {
 
   const handleDelete = async (todo) => {
     await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
-    
   }
+
+  const handleTodoFormorNot = () => {
+    if (createTodoForm === true) {
+      setCreateTodoForm(false)
+    } else setCreateTodoForm(true)
+  };
 
   const todoNodes = todos.map(todo => {
     return <TodoItem 
@@ -31,9 +36,18 @@ const TodoList = () => {
       key={ todo._id }
   /> })
 
+  const todoFormOrNot = () => {
+    if (createTodoForm === true) {
+      return <CreateTodoControl />
+    } else {
+      return <button onClick={handleTodoFormorNot}>Create Todo</button> 
+    }
+  };
+
   return (
     <div className='TodoList'>
-      <CreateTodoControl />
+      {/* <CreateTodoControl /> */}
+      { todoFormOrNot() }
       <h2>Hey this is the List Component</h2>
       {/* THIS NEEDS TO CONDITIONALLY RENDER THAT TODOS EDIT FORM */}
         { (editForm)? <h1>editForm state true</h1> 

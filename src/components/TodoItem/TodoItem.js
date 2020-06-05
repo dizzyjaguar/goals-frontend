@@ -15,6 +15,7 @@ const TodoItem = ({ todo, handleDelete }) => (
             <button>Update</button>
         </Link>
         <button id='Todo-delete' onClick={() => handleDelete(todo)}>Delete</button>
+        {/* <div className={CompleteButton}></div> */}
       </div>
 )
 

@@ -11,6 +11,7 @@ import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import About from '../About/About';
 import './App.css';
 import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
+import UpdateTodoControl from '../../containers/UpdateTodoControl/UpdateTodoControl';
 
 
 export default function App() {

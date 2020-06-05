@@ -12,31 +12,25 @@ const UpdateTodoControl = () => {
   let { _id } = useParams();
 
   const handleChange = ({ target }) => {
-    // if(target.name === 'title') setTitle(target.value);
-    // if(target.name === 'description') setDescription(target.value);
+    if(target.name === 'title') setTitle(target.value);
+    if(target.name === 'description') setDescription(target.value);
   }
 
   //this also might need to change
   const setTodoToUpdate = async() => {
     const res = await request.get(`http://localhost:7890/api/v1/todos/${_id}`)
     await setTodo(res.body)
-    await setTitle(todo.title)
-    await setDescription(todo.description)
   };
 
   //this isnt working!
   useEffect(() => {
     setTodoToUpdate()
   }, [])
-
-  
-  //state 
-  console.log(title)
   
   
   return(
     <>
-      <UpdateTodoForm todo={todo} title={title} description={description} handleChange={handleChange} />
+      <UpdateTodoForm todo={todo} title={todo} description={todo} handleChange={handleChange} />
     </>
   );
 };
