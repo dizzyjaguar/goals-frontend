@@ -8,12 +8,12 @@ const CreateTodoForm = ({ title, description, handleChange, handleSubmit }) => {
         <form className='Todo-form'>
           <label>
             Title:
-            <input name='title' type="text" value={title} onChange={handleChange} />
+            <input name='title' type="text" value={title} onChange={handleChange} placeholder='title' />
           </label>
           
           <label>
             Description:
-            <input name='description' type="text" value={description} onChange={handleChange }/>
+            <input name='description' type="text" value={description} onChange={handleChange} placeholder='description' />
           </label>
           <button type="submit" onClick={handleSubmit}>Add</button>
         </form>

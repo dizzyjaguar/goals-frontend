@@ -21,12 +21,7 @@ const TodoList = () => {
     await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
   }
 
-  const handleTodoFormorNot = () => {
-    if (createTodoForm === true) {
-      setCreateTodoForm(false)
-    } else setCreateTodoForm(true)
-  };
-
+  
   const todoNodes = todos.map(todo => {
     return <TodoItem 
       todo={ todo }          
@@ -36,15 +31,21 @@ const TodoList = () => {
       key={ todo._id }
   /> })
 
-  const todoFormOrNot = () => {
-    if (createTodoForm === true) {
-      return <CreateTodoControl />
-    } else {
-      return <button onClick={handleTodoFormorNot}>Create Todo</button> 
-    }
-  };
+const todoFormOrNot = () => {
+  if (createTodoForm === true) {
+    return <CreateTodoControl />
+  } else {
+    return <button onClick={handleTodoFormorNot}>Create Todo</button> 
+  }
+};
 
-  return (
+const handleTodoFormorNot = () => {
+  if (createTodoForm === true) {
+    setCreateTodoForm(false)
+  } else setCreateTodoForm(true)
+};
+
+return (
     <div className='TodoList'>
       {/* <CreateTodoControl /> */}
       { todoFormOrNot() }

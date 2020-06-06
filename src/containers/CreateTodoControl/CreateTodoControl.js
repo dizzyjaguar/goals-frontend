@@ -3,8 +3,8 @@ import request from 'superagent';
 import CreateTodoForm from '../../components/CreateTodoForm/CreateTodoForm';
 
 const CreateTodoControl = () => {
-  const [title, setTitle] = useState('title');
-  const [description, setDescription] = useState('description');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [complete, setComplete] = useState(false);
   
 
