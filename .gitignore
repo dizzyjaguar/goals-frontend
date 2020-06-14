@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# my todo list for the project
+TODO.md
+
 # production
 /build
 

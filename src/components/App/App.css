@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Header {
+  border: 1px solid #61dafb;
+  width: 100vw;
+  height: 20vh;
+  
+}
+
+.TodoList {
+  border: 1px dashed #61dafb;
+  
+}
+
+.TodoItem {
+  border: 1px dotted #61dafb;
+  margin: 10px auto;
+  width: 10vw;
+  height: 150px;
+}
+

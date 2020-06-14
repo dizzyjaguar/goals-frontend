@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 
-import './App.css';
-
-
-export default class App extends Component {
+export default class Landing extends Component {
   render() {
     return (
       <div>
-        Hello
+        GREETINGS! THIS IS THE LANDING PAGE
       </div>
     )
   }
 }
-
