@@ -4,17 +4,27 @@ import TodoItem from '../../components/TodoItem/TodoItem';
 import CreateTodoControl from '../../containers/CreateTodoControl/CreateTodoControl';
 import { getTodoList } from '../../services/Todos/todoServices';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setTodos } from '../../actions/todosActions';
+
 
 
 const TodoList = () => {
+  const dispatch = useDispatch();
   const [todos, setTodos] = useState([]);
   const [editForm, setEditForm] = useState(false);
   const [createTodoForm, setCreateTodoForm] = useState(false);
   let history = useHistory();
 
-  useEffect(() => {
-    getTodoList()
-      .then(fetchedTodos => setTodos(fetchedTodos.body));
+  // useEffect(() => {
+  //   getTodoList()
+  //     .then(fetchedTodos => setTodos(fetchedTodos.body));
+
+  //   }, []);
+    
+    useEffect(() => {
+      dispatch(setTodos())
+      
   }, []);
 
   const handleDelete = async (todo) => {

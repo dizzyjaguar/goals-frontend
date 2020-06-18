@@ -7,3 +7,8 @@ export const getTodoList = () => {
 export const getTodoById = (_id) => {
   return request.get(`http://localhost:7890/api/v1/todos/${_id}`)
 }; 
+
+export const fetchTodos = () => {
+  return fetch('http://localhost:7890/api/v1/todos')
+    .then(res => res.json())
+};
