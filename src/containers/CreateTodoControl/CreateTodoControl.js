@@ -18,7 +18,8 @@ const CreateTodoControl = () => {
     if(target.name === 'complete') setComplete(target.value);
   }
 
-  const handleSubmit = async() => {
+  const handleSubmit = async(event) => {
+    event.preventDefault()
 
     const newTodo = {
       title: title,

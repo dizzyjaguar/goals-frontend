@@ -15,4 +15,5 @@ export const fetchTodos = () => {
 
 export const postTodo = (newTodo) => {
   return request.post('http://localhost:7890/api/v1/todos', newTodo)
+    .then(res => res.body)
 }

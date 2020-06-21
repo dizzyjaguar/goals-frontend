@@ -18,6 +18,7 @@ const TodoList = () => {
   const [createTodoForm, setCreateTodoForm] = useState(false);
   let history = useHistory();
   
+  // old way 
   // useEffect(() => {
   //   getTodoList()
   //     .then(fetchedTodos => setTodos(fetchedTodos.body));
