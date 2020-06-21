@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import request from 'superagent';
 import CreateTodoForm from '../../components/CreateTodoForm/CreateTodoForm';
+import { postTodo } from '../../services/Todos/todoServices';
+import { useDispatch } from 'react-redux';
+import { createTodo } from '../../actions/todosActions';
 
 const CreateTodoControl = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [complete, setComplete] = useState(false);
@@ -22,7 +26,7 @@ const CreateTodoControl = () => {
       complete: complete
     };
 
-    await request.post('http://localhost:7890/api/v1/todos', newTodo)
+    dispatch(createTodo(newTodo))
   };
 
 

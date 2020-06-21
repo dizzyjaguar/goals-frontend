@@ -12,3 +12,7 @@ export const fetchTodos = () => {
   return fetch('http://localhost:7890/api/v1/todos')
     .then(res => res.json())
 };
+
+export const postTodo = (newTodo) => {
+  return request.post('http://localhost:7890/api/v1/todos', newTodo)
+}
