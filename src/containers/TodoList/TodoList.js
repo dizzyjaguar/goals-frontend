@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TodoItem from '../../components/TodoItem/TodoItem';
 import CreateTodoControl from '../../containers/CreateTodoControl/CreateTodoControl';
-import { getTodoList, deleteTodoById } from '../../services/Todos/todoServices';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTodosRedux, deleteTodo } from '../../actions/todosActions';
