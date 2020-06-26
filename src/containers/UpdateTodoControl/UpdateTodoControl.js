@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import UpdateTodoForm from '../../components/UpdateTodoForm/UpdateTodoForm';
 import request from 'superagent';
 import { useParams } from 'react-router-dom';
-import { getTodoById } from '../../services/Todos/todoServices';
+import { getTodoById, patchTodo } from '../../services/Todos/todoServices';
 
 ///THIS CONTROLLER IS NOT WORKING 
 const UpdateTodoControl = () => {
@@ -11,11 +11,22 @@ const UpdateTodoControl = () => {
   const [description, setDescription] = useState('');
   let { _id } = useParams();
   
-  //this isnt working!
+  
   useEffect(() => {
     getTodoById(_id)
-      .then(todo => setTodo(todo.body))
+      .then(todo => setTodo(todo.body));
   }, [])
+
+
+  //this isnt working cant set the title or description state for some reason
+  useEffect(() => {
+    setTitle(todo.title);
+    setDescription(todo.description);
+  }, todo)
+
+  
+
+  console.log(title)
 
   const handleChange = ({ target }) => {
     if(target.name === 'title') setTitle(target.value);
@@ -25,14 +36,13 @@ const UpdateTodoControl = () => {
   const handleSubmit = async(event) => {
     event.preventDefault()
     
-    console.log('Update Todo sent');  
     const updatedTodo = {
-      title: todo.title,
-      description: todo.description,
+      title: title,
+      description: description,
       complete: false,
     }
     
-    request.patch(`http://localhost:789api/v1/todos/${todo._id}`, updatedTodo)
+    patchTodo(todo, updatedTodo)
     }
 
   
