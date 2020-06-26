@@ -24,7 +24,7 @@ export default function App() {
           <Route exact path='/todos' component={TodoList} />
           <Route exact path='/about' component={About} />
           <Route exact path='/todo/:_id' component={TodoDetailData} />
-          <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
+          <Route exact path='/todo/update/:_id' component={UpdateTodoControl} />
           
         </Switch>
       </div>

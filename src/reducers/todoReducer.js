@@ -1,4 +1,4 @@
-import { SET_TODOS, CREATE_TODO } from '../actions/todosActions';
+import { SET_TODOS, CREATE_TODO, UPDATE_TODO } from '../actions/todosActions';
 
 const initialState = {
   todos: []
@@ -14,7 +14,10 @@ export default function reducer(state = initialState, action) {
       return {
         ...state, todos: [...state.todos, action.payload]
       }
-
+    case UPDATE_TODO:
+      return {
+        ...state, todos: [...state.todos, action.payload]
+      }
     default:
       return state;
   }
