@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import request from 'superagent';
 import TodoItem from '../../components/TodoItem/TodoItem';
 import CreateTodoControl from '../../containers/CreateTodoControl/CreateTodoControl';
-import { getTodoList } from '../../services/Todos/todoServices';
+import { getTodoList, deleteTodoById } from '../../services/Todos/todoServices';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTodosRedux } from '../../actions/todosActions';
+import { setTodosRedux, deleteTodo } from '../../actions/todosActions';
 import { getTodos } from '../../selectors/todoSelector';
 
 
@@ -18,7 +17,6 @@ const TodoList = () => {
   const [createTodoForm, setCreateTodoForm] = useState(false);
   let history = useHistory();
   
-  // old way 
   // useEffect(() => {
   //   getTodoList()
   //     .then(fetchedTodos => setTodos(fetchedTodos.body));
@@ -30,7 +28,7 @@ const TodoList = () => {
   }, []);
 
   const handleDelete = async (todo) => {
-    await request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
+    dispatch(deleteTodo(todo))
   }
 
   

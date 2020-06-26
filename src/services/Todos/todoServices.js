@@ -22,3 +22,8 @@ export const patchTodo = (todo, updatedTodo) => {
   return request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`, updatedTodo)
     .then(res => res.body)
 }
+
+export const deleteTodoById = (todo) => {
+  return request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
+    .then(res => res.body)
+}

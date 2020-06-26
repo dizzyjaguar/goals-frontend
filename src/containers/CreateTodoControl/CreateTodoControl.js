@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import request from 'superagent';
 import CreateTodoForm from '../../components/CreateTodoForm/CreateTodoForm';
-import { postTodo } from '../../services/Todos/todoServices';
 import { useDispatch } from 'react-redux';
 import { createTodo } from '../../actions/todosActions';
 
