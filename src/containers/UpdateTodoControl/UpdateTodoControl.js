@@ -21,7 +21,7 @@ const UpdateTodoControl = () => {
   useEffect(() => {
     setTitle(todo.title);
     setDescription(todo.description);
-  }, [])
+  }, [todo])
 
   console.log(todo.title)
 
