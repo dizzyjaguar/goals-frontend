@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import UpdateTodoForm from '../../components/UpdateTodoForm/UpdateTodoForm';
-import request from 'superagent';
 import { useParams } from 'react-router-dom';
 import { getTodoById, patchTodo } from '../../services/Todos/todoServices';
 
-///THIS CONTROLLER IS NOT WORKING 
+
 const UpdateTodoControl = () => {
   const [todo, setTodo] = useState({});
   const [title, setTitle] = useState('');
@@ -22,11 +21,9 @@ const UpdateTodoControl = () => {
   useEffect(() => {
     setTitle(todo.title);
     setDescription(todo.description);
-  }, todo)
+  }, [])
 
-  
-
-  console.log(title)
+  console.log(todo.title)
 
   const handleChange = ({ target }) => {
     if(target.name === 'title') setTitle(target.value);
@@ -40,12 +37,11 @@ const UpdateTodoControl = () => {
       title: title,
       description: description,
       complete: false,
-    }
+    };
     
     patchTodo(todo, updatedTodo)
-    }
+    };
 
-  
   
   return(
     <>
