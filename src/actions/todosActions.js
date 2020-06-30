@@ -16,13 +16,13 @@ export const createTodo = (newTodo) => dispatch => {
     });
 }
 
-// export const UPDATE_TODO = 'UPDATE_TODO';
-// export const updateTodo = (todo, updatedTodo) => dispatch => {
-//   return patchTodo(todo, updatedTodo)
-//     .then(res => {
-//       dispatch({ type: UPDATE_TODO, payload: res });
-//     });
-// }
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const updateTodo = (todo, updatedTodo) => dispatch => {
+  return patchTodo(todo, updatedTodo)
+    .then(res => {
+      dispatch({ type: UPDATE_TODO, payload: res });
+    });
+}
 
 export const DELETE_TODO = 'DELETE_TODO';
 export const deleteTodo = (todo) => dispatch => {

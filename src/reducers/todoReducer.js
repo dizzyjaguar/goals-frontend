@@ -14,10 +14,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state, todos: [...state.todos, action.payload]
       }
-    // case UPDATE_TODO:
-    //   return {
-    //     ...state, todos: [...state.todos, action.payload]
-    //   }
+    case UPDATE_TODO:
+      return {
+        ...state, todos: state.todos.map(todo => {
+          if(action.payload._id === todo._id) return action.payload;
+          return todo;
+        })
+      }
     case DELETE_TODO:
       return {
         ...state, todos: state.todos.filter(todo => todo._id !== action.payload._id)

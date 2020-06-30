@@ -7,7 +7,6 @@ import {
 import Header from '../Header/Header';
 import Landing from '../Landing.js/Landing';
 import TodoList from '../../containers/TodoList/TodoList';
-import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import About from '../About/About';
 import './App.css';
 import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
