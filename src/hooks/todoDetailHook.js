@@ -9,14 +9,8 @@ export const useTodoDetail = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   //dont believe this is right because i wrote it with params??
-  const todo = useSelector(getSingleTodo())
+  const todo = useSelector(getSingleTodo)
   let { _id } = useParams();
-  
-
-  // useEffect(() => {
-  //   getTodoById(_id)
-  //     .then(todo => setTodo(todo));
-  // }, []);
 
   useEffect(() => {
     dispatch(setTodoRedux(_id))
