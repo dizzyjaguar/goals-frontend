@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSingleTodo } from '../selectors/todoSelector';
-import { useParams } from 'react-router-dom';
-import { setTodo } from '../actions/todosActions';
+import { getSingleTodo, getTodos } from '../selectors/todoSelector';
+import { useParams, useHistory } from 'react-router-dom';
+import { setTodoRedux, deleteTodo, setTodosRedux } from '../actions/todosActions';
+import { getTodoById } from '../services/Todos/todoServices';
 
 export const useTodoDetail = () => {
   const dispatch = useDispatch();
-  const todo = useSelector(getSingleTodo);
+  const history = useHistory();
+  //dont believe this is right because i wrote it with params??
+  const todo = useSelector(getSingleTodo())
   let { _id } = useParams();
+  
+
+  // useEffect(() => {
+  //   getTodoById(_id)
+  //     .then(todo => setTodo(todo));
+  // }, []);
 
   useEffect(() => {
-    dispatch(setTodo(_id))
-  }, []);
+    dispatch(setTodoRedux(_id))
+  }, [])
 
+  const handleDelete = async (todo) => {
+    dispatch(deleteTodo(todo))
+      await (history.goBack())
+  };
 
-  
+  return {
+    todo,
+    handleDelete
+  }
+
 }

@@ -1,7 +1,8 @@
-import { SET_TODOS, CREATE_TODO, UPDATE_TODO, DELETE_TODO } from '../actions/todosActions';
+import { SET_TODOS, CREATE_TODO, UPDATE_TODO, DELETE_TODO, SET_TODO } from '../actions/todosActions';
 
 const initialState = {
-  todos: []
+  todos: [],
+  todo: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -9,6 +10,10 @@ export default function reducer(state = initialState, action) {
     case SET_TODOS:
       return {
         ...state, todos: action.payload
+      }
+    case SET_TODO:
+      return {
+        ...state, todo: action.payload
       }
     case CREATE_TODO:
       return {

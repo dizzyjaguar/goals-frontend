@@ -10,7 +10,7 @@ export const setTodosRedux = () => dispatch => {
 }
 
 export const SET_TODO = 'SET_TODO';
-export const setTodo = (id) => dispatch => {
+export const setTodoRedux = (id) => dispatch => {
   return getTodoById(id)
     .then(res => {
       dispatch({ type: SET_TODO, payload: res });

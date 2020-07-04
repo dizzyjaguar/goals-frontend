@@ -11,6 +11,7 @@ import './App.css';
 import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
 import UpdateTodoControl from '../../containers/UpdateTodoControl/UpdateTodoControl';
 import List from '../List/List';
+import Detail from '../Detail/Detail';
 
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
           <Route exact path='/' component={Landing} />
           <Route exact path='/todos' component={List} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/todo/:_id' component={TodoDetailData} />
+          <Route exact path='/todo/:_id' component={Detail} />
           <Route exact path='/todo/update/:_id' component={UpdateTodoControl} />
           
         </Switch>
