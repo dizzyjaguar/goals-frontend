@@ -1,10 +1,19 @@
-import { fetchTodos, postTodo, patchTodo, deleteTodoById } from '../services/Todos/todoServices';
+import { fetchTodos, postTodo, patchTodo, deleteTodoById, getTodoById } from '../services/Todos/todoServices';
+import { getTodos } from '../selectors/todoSelector';
 
 export const SET_TODOS = 'SET_TODOS';
 export const setTodosRedux = () => dispatch => {
   return fetchTodos()
     .then(res => {
       dispatch({ type: SET_TODOS, payload: res });
+    });
+}
+
+export const SET_TODO = 'SET_TODO';
+export const setTodo = (id) => dispatch => {
+  return getTodoById(id)
+    .then(res => {
+      dispatch({ type: SET_TODO, payload: res });
     });
 }
 

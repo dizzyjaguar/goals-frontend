@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import Header from '../Header/Header';
 import Landing from '../Landing.js/Landing';
-import TodoList from '../../containers/TodoList/TodoList';
 import About from '../About/About';
 import './App.css';
 import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
