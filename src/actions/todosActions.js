@@ -1,5 +1,4 @@
 import { fetchTodos, postTodo, patchTodo, deleteTodoById, getTodoById } from '../services/Todos/todoServices';
-import { getTodos } from '../selectors/todoSelector';
 
 export const SET_TODOS = 'SET_TODOS';
 export const setTodosRedux = () => dispatch => {
