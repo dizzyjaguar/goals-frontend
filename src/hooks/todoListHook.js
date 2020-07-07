@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTodos } from '../selectors/todoSelector';
 import { setTodosRedux, deleteTodo } from '../actions/todosActions';
-import CreateTodoControl from '../containers/CreateTodoControl/CreateTodoControl';
 import TodoItem from '../components/TodoItem/TodoItem';
+import CreateTodoForm from '../components/CreateTodoForm/CreateTodoForm';
 
 
 export const useTodoList = () => {
@@ -27,7 +27,7 @@ export const useTodoList = () => {
 
   const todoFormOrNot = () => {
     if (createTodoForm === true) {
-      return <CreateTodoControl />
+      return <CreateTodoForm />
     } else {
       return <button onClick={handleTodoFormOrNot}>Create Todo</button> 
     }
