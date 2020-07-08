@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { useTodoDetail } from '../../hooks/todoDetailHook';
 import TodoItem from '../TodoItem/TodoItem';
 
-const TodoDetail = ({ todo, handleDelete }) => {
+const Detail = () => {
+  const { todo, handleDelete } = useTodoDetail();
+  console.log(todo)
   return (
     <div className='TodoDetail-div'>
           <TodoItem 
           todo={todo}
           handleDelete={handleDelete}
-          // handleUpdate={handleUpdate}
            />    
     </div>
-  )
+  ) 
 }
 
-export default TodoDetail;
+export default Detail;

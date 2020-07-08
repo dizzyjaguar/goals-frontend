@@ -1,111 +1,24 @@
-import React, {Component} from 'react';
-import request from 'superagent';
+import React from 'react';
+import { useUpdateTodo } from '../../hooks/updateTodoHooks';
 
-
-
-
-// const UpdateTodoForm = ({ title, description, handleChange }) => {
-
-//   return (
-//     <div>
-//         <form className='Todo-update-form'>
-//           <label>
-//             Title:
-//             <input name='title' type='text' value={title} onChange={handleChange} />
-//           </label>
-//           <label>
-//             Description:
-//             <input name='description' type="text" value={description} onChange={handleChange} />
-//           </label>
-
-//           {/* <button onClick={() => this.handleSubmit(this.state.todo)}>Submit</button> */}
-        
-
-//         </form>
-//       </div>
-//   )
-// }
-
-// export default UpdateTodoForm;
-
-
-
-export default class UpdateTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todo: {},
-      title: '',
-      description: ''
-    }
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  getTodoById = (todoId) => request.get(`http://localhost:7890/api/v1/todos/${todoId}`)
-
-  componentDidMount = async() => {
-    const todoId = this.props.match.params._id
-    const data = await this.getTodoById(todoId)
-    const todo = data.body
-    console.log(todo.title)
-    this.setState({
-      todo: todo,
-      title: todo.title,
-      description: todo.description,
-    })
-    console.log(this.state)
-
-    //-----------
-    //NEED TO NOW PASS THE FETCHED DATA INTO STATE AND TO BE THE INTIAL VALUES OF THE FORM!!
- 
-  }
-
-  handleChange = (event) => {
-    const input = event.target;
-    const value = input.value
-    const name = input.name
-    
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit = async (todo) => {
-    console.log('Update Todo sent');
-    
-    const updatedTodo = {
-      title: this.state.title,
-      description: this.state.description,
-      complete: false,
-    }
-    
-    await request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`, updatedTodo)
-
-  }
-
-
-  render() {
-    // const { todo } = this.props;
-    return (
-      <div>
+const UpdateTodoForm = () => {
+  const { values, handleChange, handleSubmit } = useUpdateTodo();
+  
+  return (
+    <div>
         <form className='Todo-update-form'>
           <label>
             Title:
-            <input name='title' type='text' value={ this.state.title } onChange={ this.handleChange } />
+            <input name='title' type='text' value={values.title} onChange={handleChange} />
           </label>
-
           <label>
             Description:
-            <input name='description' type="text" value={ this.state.description } onChange={ this.handleChange } />
+            <input name='description' type="text" value={values.description} onChange={handleChange} />
           </label>
-
-          <button onClick={() => this.handleSubmit(this.state.todo)}>Submit</button>
-        
-
+          <button onClick={handleSubmit}>Submit</button>
         </form>
       </div>
-    )
-  }
+  )
 }
+
+export default UpdateTodoForm;

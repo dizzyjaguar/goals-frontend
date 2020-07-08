@@ -6,12 +6,12 @@ import {
 } from 'react-router-dom';
 import Header from '../Header/Header';
 import Landing from '../Landing.js/Landing';
-import TodoList from '../../containers/TodoList/TodoList';
-import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import About from '../About/About';
 import './App.css';
-import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
-import UpdateTodoControl from '../../containers/UpdateTodoControl/UpdateTodoControl';
+import List from '../List/List';
+import Detail from '../Detail/Detail';
+import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
+
 
 
 export default function App() {
@@ -21,10 +21,11 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route exact path='/todos' component={TodoList} />
+          <Route exact path='/todos' component={List} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/todo/:_id' component={TodoDetailData} />
+          <Route exact path='/todo/:_id' component={Detail} />
           <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
+          {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
       </div>
