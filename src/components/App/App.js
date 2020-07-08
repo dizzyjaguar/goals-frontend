@@ -8,10 +8,9 @@ import Header from '../Header/Header';
 import Landing from '../Landing.js/Landing';
 import About from '../About/About';
 import './App.css';
-import TodoDetailData from '../../containers/TodoDetailData/TodoDetailData';
-import UpdateTodoControl from '../../containers/UpdateTodoControl/UpdateTodoControl';
 import List from '../List/List';
 import Detail from '../Detail/Detail';
+import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 
 
 
@@ -25,7 +24,7 @@ export default function App() {
           <Route exact path='/todos' component={List} />
           <Route exact path='/about' component={About} />
           <Route exact path='/todo/:_id' component={Detail} />
-          <Route exact path='/todo/update/:_id' component={UpdateTodoControl} />
+          <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
           {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
