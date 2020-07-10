@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUpdateTodo } from '../../hooks/updateTodoHooks';
+import { useUpdateTodo } from '../../hooks/todoHooks/updateTodoHooks';
 
 const UpdateTodoForm = () => {
   const { values, handleChange, handleSubmit } = useUpdateTodo();

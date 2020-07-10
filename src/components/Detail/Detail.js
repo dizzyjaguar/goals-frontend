@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTodoDetail } from '../../hooks/todoDetailHook';
+import { useTodoDetail } from '../../hooks/todoHooks/todoDetailHook';
 import TodoItem from '../TodoItem/TodoItem';
 
 const Detail = () => {
