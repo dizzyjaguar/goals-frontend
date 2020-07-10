@@ -8,9 +8,8 @@ const TodoItem = ({ todo, handleDelete }) => (
           window.location.href.includes('todos') 
           ? <Link to={`todo/${todo._id}`}> <h3 className='Todo-title'> {todo.title} </h3> </Link> : <h3 className='Todo-title'> {todo.title} </h3>
         }
-
+        
         <p className='Todo-desc'> {todo.description} </p>
-        {/* <button id='Todo-update' onClick={() => this.props.handleTurnIntoForm(this.props.todo)}>Update</button> */}
         <Link to={`/todo/update/${todo._id}`}>
             <button>Update</button>
         </Link>
