@@ -11,6 +11,7 @@ import './App.css';
 import List from '../List/List';
 import Detail from '../Detail/Detail';
 import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
+import Signup from '../User/Signup';
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
           <Route exact path='/about' component={About} />
           <Route exact path='/todo/:_id' component={Detail} />
           <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
+          <Route exact path='/signup' component={Signup} />
           {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
