@@ -2,7 +2,7 @@ import React from 'react';
 import { useSignup } from '../../hooks/authHooks/signupHooks';
 
 const Signup = () => {
-  const { values, handleChange } = useSignup();
+  const { values, handleChange, handleSignup } = useSignup();
 
   return (
     <>
@@ -18,7 +18,7 @@ const Signup = () => {
         <label>
           <input name='photo' type='file' />
         </label>
-        {/* <button type='submit' onSubmit={console.log(values)}>Signup</button> */}
+        <button type='submit' onClick={handleSignup}>Signup</button>
       </form>
     </>
   )

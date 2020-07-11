@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { signupRedux } from '../../actions/authActions';
 
 export const useSignup = () => {
-  // add email field on the backend User model at somepoint
+  const dispatch = useDispatch();
   const [values, setValues] = useState({
     username: '',
     password: '',
@@ -16,8 +18,15 @@ export const useSignup = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const handleSignup = async(event) => {
+    event.preventDefault()
+
+    dispatch(signupRedux(values))
+  };
+
   return {
     values,
-    handleChange
+    handleChange,
+    handleSignup
   }
 }
