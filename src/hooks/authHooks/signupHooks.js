@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { signupRedux } from '../../actions/authActions';
+import { signupRedux, logoutRedux } from '../../actions/authActions';
 
 export const useSignup = () => {
   const dispatch = useDispatch();
@@ -28,5 +28,19 @@ export const useSignup = () => {
     values,
     handleChange,
     handleSignup
+  }
+};
+// LOGOUT HOOK this will need more work, like re routing after loggin out, and if statement so that this isnt an option if a user is actually logged in, something like if (user !== null) {then make this button option available}
+export const useLogout = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = async(event) => {
+    event.preventDefault()
+
+    dispatch(logoutRedux())
+  };
+
+  return {
+    handleLogout
   }
 }
