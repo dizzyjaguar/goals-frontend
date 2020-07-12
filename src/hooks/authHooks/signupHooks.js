@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { signupRedux, logoutRedux } from '../../actions/authActions';
 
+//------ NEXT THING TO DO IS THE LOGIN ------
 export const useSignup = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
