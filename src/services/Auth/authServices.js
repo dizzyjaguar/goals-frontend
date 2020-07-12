@@ -8,3 +8,8 @@ export const signupRequest = (newUser) => {
 export const login = () => {
 
 }
+
+export const logoutRequest = () => {
+  return request.get('http://localhost:7890/api/v1/auth/logout')
+    .then(res => res.body)
+}
