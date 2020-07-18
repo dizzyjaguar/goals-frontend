@@ -1,10 +1,18 @@
-import { signupRequest, logoutRequest } from '../services/Auth/authServices';
+import { signupRequest, logoutRequest, loginRequest } from '../services/Auth/authServices';
 
 export const SET_USER = 'SET_USER';
 export const signupRedux = (newUser) => dispatch => {
   return signupRequest(newUser)
     .then(res => {
       dispatch({ type: SET_USER, payload: res });
+    });
+}
+
+export const LOGIN = 'LOGIN';
+export const loginRedux = (user) => dispatch => {
+  return loginRequest(user)
+    .then(res => {
+      dispatch({ type: SET_USER, payload: res })
     });
 }
 

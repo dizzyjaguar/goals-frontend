@@ -16,6 +16,7 @@ const Signup = () => {
           <input name='password' type='text' value={values.password} onChange={handleChange} placeholder='password' />
         </label>
         <label>
+          Photo
           <input name='photo' type='file' />
         </label>
         <button type='submit' onClick={handleSignup}>Signup</button>
