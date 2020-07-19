@@ -8,9 +8,14 @@ export const signupRequest = (newUser) => {
 export const loginRequest = (user) => {
   return request.post('http://localhost:7890/api/v1/auth/login', user)
     .then(res => res.body)
-}
+};
+
+export const verifyRequest = () => {
+  return request.get('http://localhost:7890/api/v1/auth/verify')
+    .then(res => res.body)
+};
 
 export const logoutRequest = () => {
   return request.get('http://localhost:7890/api/v1/auth/logout')
     .then(res => res.body)
-}
+};
