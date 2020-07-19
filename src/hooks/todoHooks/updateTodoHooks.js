@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { updateTodo, setTodoRedux } from '../actions/todosActions';
-import { getSingleTodo } from '../selectors/todoSelector';
+import { updateTodo, setTodoRedux } from '../../actions/todosActions';
+import { getSingleTodo } from '../../selectors/todoSelector';
 
 export const useUpdateTodo = () => {
   const dispatch = useDispatch();

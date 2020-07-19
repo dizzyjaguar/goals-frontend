@@ -11,6 +11,9 @@ import './App.css';
 import List from '../List/List';
 import Detail from '../Detail/Detail';
 import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
+import Signup from '../User/Signup';
+import Login from '../User/Login';
+import Profile from '../User/Profile';
 
 
 
@@ -25,6 +28,9 @@ export default function App() {
           <Route exact path='/about' component={About} />
           <Route exact path='/todo/:_id' component={Detail} />
           <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
+          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/profile' component={Profile} />
           {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
@@ -32,38 +38,4 @@ export default function App() {
     </Router>
   )
 }
-
-
-
-
-
-
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <Router>
-//       <div className='App'>
-//         <Header />
-
-//         <Switch>
-          
-//           <Route exact path='/' component={Landing} />
-//           <Route exact path='/todos' component={TodoList} />
-//           <Route exact path='/about' component={About} />
-//           <Route exact path='/todo/:_id' component={TodoDetail} />
-//           <Route exact path='/todo/update/:_id' component={UpdateTodo} />
-
-//         </Switch>
-//         {/* <TodoList /> */}
-
-
-//       </div>
-
-//       </Router>
-      
-      
-//     )
-//   }
-// }
 

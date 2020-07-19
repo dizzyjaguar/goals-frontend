@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import { 
-  Link,
-  BrowserRouter as Router, 
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useLogout } from '../../hooks/authHooks/signupHooks';
 
-export default class Header extends Component {
-  render() {
-    return (
-      <div className='Header'>
-        <Link to='/'>Home</Link>
-        <Link to='/todos'>Todos</Link>
-        <Link to='/about'>About</Link>
-      </div>
+const Header = () => {
+  const { handleLogout } = useLogout();
+  
+  return (
+    <div className='Header'>
+      <Link to='/'>Home</Link>
+      <Link to='/todos'>Todos</Link>
+      <Link to='/profile'>Profile</Link>
+      <Link to='/signup'>Signup</Link>
+      <Link to='/login'>Login</Link>
+      <Link to='/about'>About</Link>
+      <button onClick={handleLogout}>LOGOUT</button>
+    </div>
     )
   }
-}
+
+export default Header;
+

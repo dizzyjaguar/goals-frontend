@@ -1,33 +1,31 @@
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
-import { createTodo } from '../actions/todosActions';
+import { useState } from 'react';
+import { loginRedux } from '../../actions/authActions';
 
-export const useTodoForm = () => {
-  const dispatch = useDispatch()
+export const useLogin = () => {
+  const dispatch = useDispatch();
   const [values, setValues] = useState({
-    title: '',
-    description: '',
-    complete: false
+    username: '',
+    password: ''
   });
 
   const handleChange = (event) => {
     const { target } = event;
     const { name, value } = target;
     event.persist();
-    
+
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = async(event) => {
+  const handleLogin = async(event) => {
     event.preventDefault()
 
-    dispatch(createTodo(values))
+    dispatch(loginRedux(values))
   };
 
   return {
     values,
     handleChange,
-    handleSubmit
+    handleLogin
   }
-
-}
+};
