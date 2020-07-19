@@ -1,5 +1,31 @@
 import { useDispatch } from 'react-redux'
+import { useState } from 'react';
+import { loginRedux } from '../../actions/authActions';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
-}
+  const [values, setValues] = useState({
+    username: '',
+    password: ''
+  });
+
+  const handleChange = (event) => {
+    const { target } = event;
+    const { name, value } = target;
+    event.persist();
+
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleLogin = async(event) => {
+    event.preventDefault()
+
+    dispatch(loginRedux(values))
+  };
+
+  return {
+    values,
+    handleChange,
+    handleLogin
+  }
+};

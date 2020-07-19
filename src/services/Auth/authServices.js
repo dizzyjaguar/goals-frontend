@@ -6,7 +6,7 @@ export const signupRequest = (newUser) => {
 };
 
 export const loginRequest = (user) => {
-  return request.post('http://localhost:7890/api/v1/auth/signup', user)
+  return request.post('http://localhost:7890/api/v1/auth/login', user)
     .then(res => res.body)
 }
 

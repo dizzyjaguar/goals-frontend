@@ -16,6 +16,9 @@ export const loginRedux = (user) => dispatch => {
     });
 }
 
+export const VERIFY = 'VERIFY';
+//create verify action which is for peristing the user
+
 export const LOGOUT = 'LOGOUT';
 export const logoutRedux = () => dispatch => {
   return logoutRequest()

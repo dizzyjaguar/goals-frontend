@@ -11,6 +11,7 @@ const Header = () => {
       <Link to='/todos'>Todos</Link>
       <Link to='/about'>About</Link>
       <Link to='/signup'>Signup</Link>
+      <Link to='/login'>Login</Link>
       <button onClick={handleLogout}>LOGOUT</button>
     </div>
     )
