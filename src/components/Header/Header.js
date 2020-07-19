@@ -9,9 +9,10 @@ const Header = () => {
     <div className='Header'>
       <Link to='/'>Home</Link>
       <Link to='/todos'>Todos</Link>
-      <Link to='/about'>About</Link>
+      <Link to='/profile'>Profile</Link>
       <Link to='/signup'>Signup</Link>
       <Link to='/login'>Login</Link>
+      <Link to='/about'>About</Link>
       <button onClick={handleLogout}>LOGOUT</button>
     </div>
     )
