@@ -39,6 +39,7 @@ export const useCurrent = () => {
   }
 }; 
 
+//this currently is not being used anywhere yet, but will be when more important stuff is able to be done by a logged in user, such as creating a Goal or editing something thats personal to a user
 export const useVerifyUser = () => {
   const dispatch = useDispatch();
   const user = useSelector(getUser);
