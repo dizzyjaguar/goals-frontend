@@ -1,20 +1,13 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import { useLogout } from '../../hooks/authHooks/signupHooks';
+import React from 'react'
+import { useCurrent } from '../../hooks/authHooks/currentHooks';
 
 const Header = () => {
-  const { handleLogout } = useLogout();
-  
+  const { header } = useCurrent();
+   
   return (
-    <div className='Header'>
-      <Link to='/'>Home</Link>
-      <Link to='/todos'>Todos</Link>
-      <Link to='/profile'>Profile</Link>
-      <Link to='/signup'>Signup</Link>
-      <Link to='/login'>Login</Link>
-      <Link to='/about'>About</Link>
-      <button onClick={handleLogout}>LOGOUT</button>
-    </div>
+    <>
+    {header()}
+    </>
     )
   }
 

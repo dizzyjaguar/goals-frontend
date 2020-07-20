@@ -18,7 +18,7 @@ export const loginRedux = (user) => dispatch => {
 
 export const VERIFY = 'VERIFY';
 export const verifyRedux = (user) => dispatch => {
-  return verifyRequest(user)
+  return verifyRequest()
     .then(verifiedUser => {
       dispatch({
         type: SET_USER,

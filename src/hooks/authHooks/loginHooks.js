@@ -1,6 +1,8 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
-import { loginRedux } from '../../actions/authActions';
+import { loginRedux, verifyRedux } from '../../actions/authActions';
+import { getUser } from '../../selectors/authSelector';
+import { useEffect } from 'react';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -29,3 +31,4 @@ export const useLogin = () => {
     handleLogin
   }
 };
+
