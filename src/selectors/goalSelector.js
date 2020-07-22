@@ -1,0 +1,1 @@
+export const getGlobalGoals = state => state.goals.globalGoals;
