@@ -5,7 +5,7 @@ export const postGoalRequest = (goal) => {
     .then(res => res.body)
 };
 
-export const getAllGoalsRequest = () => {
+export const getAllGlobalGoalsRequest = () => {
   return request.get('http://localhost:7890/api/v1/goals')
     .then(res => res.body)
 };

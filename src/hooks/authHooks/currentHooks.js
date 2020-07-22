@@ -15,6 +15,7 @@ export const useCurrent = () => {
         <div className='Header'>
       <Link to='/'>Home</Link>
       <Link to='/todos'>Todos</Link>
+      <Link to='/global/goals'>Global</Link>
       {/* make username at the end of profile link, might need to be done in Route on App */}
       <Link to='/profile'>Profile</Link>
       <Link to='/about'>About</Link>
@@ -26,6 +27,7 @@ export const useCurrent = () => {
         <div className='Header'>
       <Link to='/'>Home</Link>
       <Link to='/todos'>Todos</Link>
+      <Link to='/global/goals'>Global</Link>
       <Link to='/about'>About</Link>
       <Link to='/login'>Login</Link>
       <Link to='/signup'>Signup</Link>
