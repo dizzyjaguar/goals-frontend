@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Goal = () => {
+const Goal = ({ goal }) => {
   return (
     <div className='Goal'>
-      <h2>title</h2>
-      <h3>stars</h3>
-      <p>description</p>
-      <p>created By</p>
+      <h2>{goal.title}</h2>
+      <h3>{goal.stars}</h3>
+      <p>{goal.description}</p>
+      <p>{goal.createdBy}</p>
     </div>
   )
 }
