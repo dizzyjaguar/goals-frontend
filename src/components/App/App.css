@@ -25,3 +25,10 @@
   height: 150px;
 }
 
+.Goal {
+  border: 1px dotted #61dafb;
+  margin: 10px auto;
+  width: 15vw;
+  height: 190px;
+}
+
