@@ -15,6 +15,7 @@ import Signup from '../User/Signup';
 import Login from '../User/Login';
 import Profile from '../User/Profile';
 import GoalList from '../Goals/GoalList';
+import GoalDetail from '../Goals/GoalDetail';
 
 
 
@@ -33,6 +34,7 @@ export default function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/global/goals' component={GoalList} />
+          <Route exact path='/global/:_id' component={GoalDetail} />
           {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
