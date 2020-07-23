@@ -14,7 +14,6 @@ import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import Signup from '../User/Signup';
 import Login from '../User/Login';
 import Profile from '../User/Profile';
-import Goal from '../Goals/Goal';
 import GoalList from '../Goals/GoalList';
 
 

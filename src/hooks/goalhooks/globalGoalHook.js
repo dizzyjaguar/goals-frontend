@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGlobalGoals } from '../../selectors/goalSelector';
+import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
+import { useHistory, useParams } from 'react-router-dom';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
@@ -23,4 +24,15 @@ export const useGlobalGoals = () => {
     globalGoals,
     goalNodes
   }
+};
+
+export const useGlobalGoalDetail = () => {
+  const dispatch = useDispatch();
+  const goal = useSelector(getGlobalGoal)
+  let { _id } = useParams();
+
+  useEffect(() => {
+    
+  })
+  
 }
