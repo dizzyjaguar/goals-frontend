@@ -1,4 +1,4 @@
-import { SET_GLOBAL_GOALS, SET_GLOBAL_GOAL } from '../actions/goalActions';
+import { SET_GLOBAL_GOALS, SET_GLOBAL_GOAL, DELETE_GOAL } from '../actions/goalActions';
 
 const intitialState = {
   globalGoals: [],
@@ -15,6 +15,10 @@ export default function reducer(state = intitialState, action) {
     case SET_GLOBAL_GOAL:
       return {
         ...state, goal: action.payload
+      }
+    case DELETE_GOAL:
+      return {
+        ...state, globalGoals: state.globalGoals.filter(goal => goal._id !== action.payload._id)
       }
     default:
       return state;

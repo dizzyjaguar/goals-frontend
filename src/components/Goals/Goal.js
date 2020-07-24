@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Goal = ({ goal }) => {
+const Goal = ({ goal, handleDelete }) => {
   //fixed the problem with optional chaining
   console.log(goal.createdBy?.username)
 
@@ -13,6 +13,9 @@ const Goal = ({ goal }) => {
       <h3>{goal.stars}</h3>
       <p>{goal.description}</p>
       <p>{goal.createdBy?.username}</p>
+
+      <button onClick={() => handleDelete(goal)}> Delete </button>
+      
     </div>
   )
 }
