@@ -10,12 +10,10 @@ const Goal = ({ goal, handleDelete }) => {
       <Link to={`/global/${goal._id}`}> 
       <h2>{goal.title}</h2> 
       </Link>
-      <h3>{goal.stars}</h3>
+      <h3>Stars:{goal.stars}</h3>
       <p>{goal.description}</p>
-      <p>{goal.createdBy?.username}</p>
-
+      <p>created by:{goal.createdBy?.username}</p>
       <button onClick={() => handleDelete(goal)}> Delete </button>
-      
     </div>
   )
 }

@@ -23,7 +23,7 @@ export const useGlobalGoals = () => {
       key= { goal._id }
       handleDelete= {handleDelete}
     />
-  })
+  });
 
 
   return {
