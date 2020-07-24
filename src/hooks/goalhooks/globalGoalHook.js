@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux, setGlobalGoalRedux } from '../../actions/goalActions';
@@ -32,10 +32,15 @@ export const useGlobalGoalDetail = () => {
   const dispatch = useDispatch();
   const goal = useSelector(getGlobalGoal)
   let { _id } = useParams();
+  
+
 
   useEffect(() => {
     dispatch(setGlobalGoalRedux(_id))
+      .then()
   }, [])
+
+  
 
   return {
     goal
