@@ -1,4 +1,5 @@
-import { getAllGlobalGoalsRequest, getGoalByIdRequest } from '../services/Goals/goalServices';
+import { getAllGlobalGoalsRequest, getGoalByIdRequest, deleteGoalRequest } from '../services/Goals/goalServices';
+import { DELETE_TODO } from './todosActions';
 
 export const SET_GLOBAL_GOALS = 'SET_GLOBAL_GOALS';
 export const setGlobalGoalsRedux = () => dispatch => {
@@ -13,5 +14,14 @@ export const setGlobalGoalRedux = (id) => dispatch => {
   return getGoalByIdRequest(id)
     .then(res => {
       dispatch({ type: SET_GLOBAL_GOAL, payload: res });
+    });
+};
+
+// this will have to get changed at somepoint so that only creators of the goal can delete it or something along those lines, but 
+export const DELETE_GOAL = 'DELETE_GOAL';
+export const deleteGoalRedux = (goal) => dispatch => {
+  return deleteGoalRequest(goal)
+    .then(res => {
+      dispatch({ type: DELETE_TODO, payload: res });
     });
 };
