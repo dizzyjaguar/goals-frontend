@@ -9,15 +9,15 @@ const CreateGoal = () => {
       <form>
         <label>
           Title:
-          <input name='title' type='text' value ={values.title} onChange={handlesChange} placeholder='title' />
+          <input name='title' type='text' value ={values?.title} onChange={handlesChange} placeholder='title' />
         </label>
         <label>
           Description:
-          <input name='description' type='text' value={values.description} onChange={handlesChange} placeholder='description' />
+          <input name='description' type='text' value={values?.description} onChange={handlesChange} placeholder='description' />
         </label>
-        {
-          user ? <button type='submit' onClick={handleSubmit}>Create</button> : <p>Please Login First</p>
-        }
+        
+        <button type='submit' onClick={handleSubmit}>Create</button>
+        
         
       </form>
     </>
