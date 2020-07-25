@@ -2,7 +2,7 @@ import React from 'react'
 import { useGoalForm } from '../../hooks/goalhooks/goalFormHooks';
 
 const CreateGoal = () => {
-  const { values, handlesChange, handleSubmit, user } = useGoalForm;
+  const { values, handlesChange, handleSubmit, user } = useGoalForm();
   
   return (
     <>

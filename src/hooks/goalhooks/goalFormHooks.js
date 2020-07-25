@@ -7,7 +7,7 @@ export const useGoalForm = () => {
   const dispatch = useDispatch()
   const user = useSelector(getUser)
   const [values, setValues] = useState({
-    createdBy: user._id,
+    createdBy: user?._id,
     title: '',
     description: ''
   });
@@ -22,6 +22,7 @@ export const useGoalForm = () => {
 
   const handleSubmit = async(event) => {
     event.preventDefault()
+    
 
     dispatch(createGlobalGoalRedux(values))
   };
