@@ -15,8 +15,10 @@ const CreateGoal = () => {
           Description:
           <input name='description' type='text' value={values?.description} onChange={handleChange} placeholder='description' />
         </label>
-        
-        <button type='submit' onClick={handleSubmit}>Create</button>
+        {
+          user ? <button type='submit' onClick={handleSubmit}>Create</button>
+          : <button disabled='true'>You need to login first</button>
+        }
         
         
       </form>
