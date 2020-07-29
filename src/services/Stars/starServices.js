@@ -5,7 +5,7 @@ export const postStarRequest = (star) => {
     .then(res => res.body)
 };
 
-export const getAllStars = () => {
+export const getAllStarsRequest = () => {
   return request.get('http://localhost:7890/api/v1/stars')
     .then(res => res.body)
 };

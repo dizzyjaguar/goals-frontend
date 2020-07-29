@@ -1,0 +1,19 @@
+import { postStarRequest, getAllStarsRequest } from '../services/Stars/starServices';
+
+//this might need to be changed once i fix up the backend route to only grab stars created by the current user
+export const SET_USER_STARS = 'SET_USER_STARS';
+export const setUserStars = () => dispatch => {
+  return getAllStarsRequest()
+    .then(res => {
+      dispatch({ type: SET_USER_STARS, payload: res });
+    });
+};
+
+
+export const CREATE_STAR = 'CREATE_STAR';
+export const createStarRedux = (star) => dispatch => {
+  return postStarRequest(star)
+    .then(res => {
+      dispatch({ type: CREATE_STAR, payload: res });
+    });
+};
