@@ -7,6 +7,11 @@ const Profile = () => {
   return (
     <>
     {loggedInOrNotGreeting()}
+    <h2>Created Goals</h2>
+
+    <h2>Current Goals</h2>
+
+    <h2>Completed Goals</h2>
     
     </>
   )

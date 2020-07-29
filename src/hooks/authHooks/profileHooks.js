@@ -8,7 +8,7 @@ export const useProfile = () => {
 
   const loggedInOrNotGreeting = () => {
     if(user !== null) {
-      return <h1>hello{user.username}</h1>
+      return <h1>hello {user.username}</h1>
     } else {
       return <h2> You need an account for anything cool </h2>
     }

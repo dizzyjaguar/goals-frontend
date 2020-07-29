@@ -27,9 +27,6 @@ export const useGoalForm = () => {
     dispatch(createGlobalGoalRedux(values))
   };
 
-  
-    // user ? <button type='submit' onClick={handleSubmit}>Create</button> : <p>Please Login First</p>
-  
 
   return {
     values,
