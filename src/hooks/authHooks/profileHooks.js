@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../../selectors/authSelector';
+import { setUserStars } from '../../actions/starActions';
+import { useVerifyUser } from './currentHooks';
+
 
 export const useProfile = () => {
-  // const dispatch = useDispatch();
-  const user = useSelector(getUser)
+  const dispatch = useDispatch();
+  const user = useVerifyUser()
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+
+  
+  useEffect(() => {
+    if (user !== null) {
+      dispatch(setUserStars())
+    } else {
+      return;
+    }
+  }, [user]);
 
   const loggedInOrNotGreeting = () => {
     if(user !== null) {
