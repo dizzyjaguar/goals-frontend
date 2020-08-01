@@ -7,11 +7,7 @@ import { useVerifyUser } from './currentHooks';
 
 export const useProfile = () => {
   const dispatch = useDispatch();
-  const user = useVerifyUser()
-
-  useEffect(() => {
-    console.log(user)
-  }, [user])
+  const user = useVerifyUser();
 
   
   useEffect(() => {

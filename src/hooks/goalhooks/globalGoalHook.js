@@ -4,9 +4,11 @@ import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
 import { useParams } from 'react-router-dom';
+import { useVerifyUser } from '../authHooks/currentHooks';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
+  const user = useVerifyUser();
   const globalGoals = useSelector(getGlobalGoals);
 
   useEffect(() => {
@@ -16,6 +18,10 @@ export const useGlobalGoals = () => {
   const handleDelete = async (goal) => {
     dispatch(deleteGoalRedux(goal))
   };
+
+  const handleStar = async (goal) => {
+    
+  }
 
   const goalNodes = globalGoals.map(goal => {
     return <Goal

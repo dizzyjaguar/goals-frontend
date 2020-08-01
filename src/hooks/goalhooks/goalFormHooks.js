@@ -5,6 +5,7 @@ import { createGlobalGoalRedux } from '../../actions/goalActions'
 
 export const useGoalForm = () => {
   const dispatch = useDispatch()
+  //possibly change to verify user hook instead of just the selector
   const user = useSelector(getUser)
   const [values, setValues] = useState({
     createdBy: user?._id,

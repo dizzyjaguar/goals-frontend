@@ -2,6 +2,7 @@ const request = require('superagent');
 
 export const postGoalRequest = (goal) => {
   return request.post('http://localhost:7890/api/v1/goals', goal)
+  .withCredentials()
     .then(res => res.body)
 };
 
@@ -17,6 +18,7 @@ export const getGoalByIdRequest = (_id) => {
 
 export const deleteGoalRequest = (goal) => {
   return request.delete(`http://localhost:7890/api/v1/goals/${goal._id}`)
+  .withCredentials()
     .then(res => res.body)
 };
 
