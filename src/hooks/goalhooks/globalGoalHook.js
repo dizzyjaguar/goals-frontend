@@ -5,11 +5,13 @@ import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../
 import Goal from '../../components/Goals/Goal';
 import { useParams } from 'react-router-dom';
 import { useVerifyUser } from '../authHooks/currentHooks';
+import { createStarRedux } from '../../actions/starActions';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
   const user = useVerifyUser();
   const globalGoals = useSelector(getGlobalGoals);
+  
 
   useEffect(() => {
     dispatch(setGlobalGoalsRedux())
@@ -20,7 +22,12 @@ export const useGlobalGoals = () => {
   };
 
   const handleStar = async (goal) => {
-    
+    let star = {
+      user: user,
+      goal: goal
+    };
+
+    dispatch(createStarRedux(star))
   }
 
   const goalNodes = globalGoals.map(goal => {
@@ -37,7 +44,8 @@ export const useGlobalGoals = () => {
   return {
     globalGoals,
     goalNodes,
-    handleDelete
+    handleDelete,
+    handleStar
   }
 };
 
