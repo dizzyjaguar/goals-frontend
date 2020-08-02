@@ -6,9 +6,7 @@ const intitialState = {
     completedGoals: [],
     currentGoals: [],
   },
-  userStars: {
     starredGoals: [],
-  }
 };
 
 export default function reducer(state = intitialState, action) {
