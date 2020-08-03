@@ -5,7 +5,7 @@ import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../
 import Goal from '../../components/Goals/Goal';
 import { useParams } from 'react-router-dom';
 import { useVerifyUser } from '../authHooks/currentHooks';
-import { createStarRedux, setUserStars } from '../../actions/starActions';
+import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
 import { getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
 
@@ -39,16 +39,16 @@ export const useGlobalGoals = () => {
     dispatch(createStarRedux(star))
   };
 
-  const handleDeleteStar = async (goal) => {
-    console.log('hi')
-  }
+  const handleDeleteStar = (goal) => {
+    dispatch(deleteStarRedux(goal))
+  };
 
   // this is not working 
   const alreadyStarred = (goal) => {
     const isStar = starredGoals.find(star => star.goal._id === goal._id);
     if(!user) return null;
     if(!isStar) return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
-    if(isStar) return <button onClick={() => handleDeleteStar(goal._id)}> UnStar </button>
+    if(isStar) return <button onClick={() => handleDeleteStar(goal)}> UnStar </button>
   };
 
   const goalNodes = globalGoals.map(goal => {
