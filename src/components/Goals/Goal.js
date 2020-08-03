@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { useGlobalGoals } from '../../hooks/goalhooks/globalGoalHook';
 
 const Goal = ({ goal, handleDelete }) => {
-
+  
   const { alreadyStarred } = useGlobalGoals();
   //fixed the problem with optional chaining
-  console.log(goal.createdBy?.username)
+  console.log(goal)
 
   return (
     <div className='Goal'>

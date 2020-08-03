@@ -7,16 +7,20 @@ import { useParams } from 'react-router-dom';
 import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars } from '../../actions/starActions';
 import { getUserStars } from '../../selectors/userSelector';
+import { getUser } from '../../selectors/authSelector';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
+  //this is making an error when not signed in
   const user = useVerifyUser();
+  // const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
+
   
-  // useEffect(() => {
-  //   dispatch(setUserStars())
-  // }, []);
+  useEffect(() => {
+    dispatch(setUserStars())
+  }, []);
 
   useEffect(() => {
     dispatch(setGlobalGoalsRedux())
@@ -39,8 +43,10 @@ export const useGlobalGoals = () => {
     console.log('hi')
   }
 
+  // this is not working 
   const alreadyStarred = (goal) => {
-    const isStar = starredGoals.find(star => star._id === goal._id);
+    const isStar = starredGoals.find(star => star.goal._id === goal._id);
+    console.log(goal)
     if(!user) return null;
     if(!isStar) return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
     if(isStar) return <button onClick={() => handleDeleteStar(goal._id)}> UnStar </button>
