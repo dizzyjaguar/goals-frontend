@@ -12,8 +12,8 @@ import { getUser } from '../../selectors/authSelector';
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
   //this is making an error when not signed in
-  const user = useVerifyUser();
-  // const user = useSelector(getUser)
+  // const user = useVerifyUser();
+  const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
 
@@ -46,7 +46,6 @@ export const useGlobalGoals = () => {
   // this is not working 
   const alreadyStarred = (goal) => {
     const isStar = starredGoals.find(star => star.goal._id === goal._id);
-    console.log(goal)
     if(!user) return null;
     if(!isStar) return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
     if(isStar) return <button onClick={() => handleDeleteStar(goal._id)}> UnStar </button>

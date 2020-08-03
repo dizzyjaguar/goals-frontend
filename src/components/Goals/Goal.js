@@ -6,7 +6,7 @@ const Goal = ({ goal, handleDelete }) => {
   
   const { alreadyStarred } = useGlobalGoals();
   //fixed the problem with optional chaining
-  console.log(goal)
+  // console.log(goal.createdBy?.username)
 
   return (
     <div className='Goal'>
