@@ -50,7 +50,7 @@ export const useVerifyUser = () => {
     if(!user) {
       dispatch(verifyRedux());
     }
-  }, [user]);
+  }, []);
 
 
 
