@@ -17,14 +17,14 @@ export const useGlobalGoals = () => {
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
 
+  useEffect(() => {
+    dispatch(setGlobalGoalsRedux())
+  }, []);
   
   useEffect(() => {
     dispatch(setUserStars())
   }, []);
 
-  useEffect(() => {
-    dispatch(setGlobalGoalsRedux())
-  }, []);
 
   const handleDelete = async (goal) => {
     dispatch(deleteGoalRedux(goal))
@@ -48,7 +48,7 @@ export const useGlobalGoals = () => {
     const isStar = starredGoals.find(star => star.goal._id === goal._id);
     if(!user) return null;
     if(!isStar) return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
-    if(isStar) return <button onClick={() => handleDeleteStar(goal)}> UnStar </button>
+    if(isStar) return <button onClick={() => handleDeleteStar(isStar)}> UnStar </button>
   };
 
   const goalNodes = globalGoals.map(goal => {
