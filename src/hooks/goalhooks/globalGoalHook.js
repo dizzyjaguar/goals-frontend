@@ -19,7 +19,7 @@ export const useGlobalGoals = () => {
 
   useEffect(() => {
     dispatch(setGlobalGoalsRedux())
-  }, []);
+  }, [starredGoals]);
   
   useEffect(() => {
     if(user) {
@@ -60,6 +60,7 @@ export const useGlobalGoals = () => {
   
 
   const goalNodes = globalGoals.map(goal => {
+    console.log(goal)
     return <Goal
       goal={ goal }
       key= { goal._id }
