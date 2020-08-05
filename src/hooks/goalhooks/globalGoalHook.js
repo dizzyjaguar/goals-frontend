@@ -11,7 +11,7 @@ import { getUser } from '../../selectors/authSelector';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
-  //this is making an error when not signed in
+  // this is making an error when not signed in
   // const user = useVerifyUser();
   const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
@@ -22,15 +22,17 @@ export const useGlobalGoals = () => {
   }, []);
   
   useEffect(() => {
-    dispatch(setUserStars())
-  }, []);
+    if(user) {
+      dispatch(setUserStars())
+    }
+  }, [user]);
 
 
-  const handleDelete = async (goal) => {
+  const handleDelete = (goal) => {
     dispatch(deleteGoalRedux(goal))
   };
 
-  const handleCreateStar = async (goal) => {
+  const handleCreateStar = (goal) => {
     let star = {
       user: user,
       goal: goal
@@ -46,10 +48,16 @@ export const useGlobalGoals = () => {
   // this is not working 
   const alreadyStarred = (goal) => {
     const isStar = starredGoals.find(star => star.goal._id === goal._id);
-    if(!user) return null;
-    if(!isStar) return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
-    if(isStar) return <button onClick={() => handleDeleteStar(isStar)}> UnStar </button>
+
+    if(!user) {
+      return null
+    } else if(!isStar) {
+      return <button onClick={() => handleCreateStar(goal._id)}> AddStar </button>
+    } else if(isStar) {
+      return <button onClick={() => handleDeleteStar(isStar)}> UnStar </button>
+    };
   };
+  
 
   const goalNodes = globalGoals.map(goal => {
     return <Goal
