@@ -12,20 +12,20 @@ import { getUser } from '../../selectors/authSelector';
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
   // this is making an error when not signed in
-  // const user = useVerifyUser();
-  const user = useSelector(getUser)
+  const user = useVerifyUser();
+  // const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
 
   useEffect(() => {
     dispatch(setGlobalGoalsRedux())
-  }, [starredGoals]);
+  }, []);
   
   useEffect(() => {
     if(user) {
       dispatch(setUserStars())
     }
-  }, [user]);
+  }, []);
 
 
   const handleDelete = (goal) => {
@@ -60,7 +60,6 @@ export const useGlobalGoals = () => {
   
 
   const goalNodes = globalGoals.map(goal => {
-    console.log(goal)
     return <Goal
       goal={ goal }
       key= { goal._id }
