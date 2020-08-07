@@ -45,9 +45,9 @@ export const useGlobalGoals = () => {
     dispatch(deleteStarRedux(goal))
   };
 
-  // this is not working 
+  // this is not working
   const alreadyStarred = (goal) => {
-    const isStar = starredGoals.find(star => star.goal._id === goal._id);
+    const isStar = starredGoals.find(star => star.goal._id || star.goal === goal._id);
 
     if(!user) {
       return null
@@ -58,7 +58,7 @@ export const useGlobalGoals = () => {
     };
   };
   
-
+  console.log(starredGoals)
   const goalNodes = globalGoals.map(goal => {
     return <Goal
       goal={ goal }
@@ -66,6 +66,16 @@ export const useGlobalGoals = () => {
       handleDelete= {handleDelete}
     />
   });
+
+//   const List = useMemo(
+//   () =>
+//   listOfItems.map(item => ({
+//     ...item,
+//     itemProp1: expensiveFunction(props.first),
+//     itemProp2: anotherPriceyFunction(props.second)
+//   })),
+//   [listOfItems]
+// )
 
   
 
