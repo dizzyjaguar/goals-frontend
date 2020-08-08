@@ -12,7 +12,7 @@ const Goal = ({ goal, handleDelete }) => {
       <h2>{goal.title}</h2> 
       </Link>
       {/* create this into a link to view the people who have starred the goal */}
-      <h3>Stars:{goal.totalStars}</h3>
+      {/* <h3>Stars:{goal.totalStars}</h3> */}
       { alreadyStarred(goal) }
       <p>{goal.description}</p>
       <p>created by:{goal.createdBy?.username}</p>

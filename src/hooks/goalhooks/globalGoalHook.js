@@ -37,7 +37,6 @@ export const useGlobalGoals = () => {
       user: user,
       goal: goal
     };
-
     dispatch(createStarRedux(star))
   };
 
@@ -45,7 +44,7 @@ export const useGlobalGoals = () => {
     dispatch(deleteStarRedux(goal))
   };
 
-  // this is not working
+  
   const alreadyStarred = (goal) => {
     const isStar = starredGoals.find(star => star.goal._id || star.goal === goal._id);
 
@@ -58,7 +57,6 @@ export const useGlobalGoals = () => {
     };
   };
   
-  console.log(starredGoals)
   const goalNodes = globalGoals.map(goal => {
     return <Goal
       goal={ goal }
