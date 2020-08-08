@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
 import { getUserStars } from '../../selectors/userSelector';
@@ -65,6 +65,15 @@ export const useGlobalGoals = () => {
     />
   });
 
+  const titleLinkOrNot = (goal) => {
+    if(window.location.href.includes('goals')) {
+      return <Link to={`global/${goal._id}`}> <h2> {goal.title} </h2> </Link>
+    } else {
+      return <h2> {goal.title} </h2>
+    }
+  };
+ 
+
 //   const List = useMemo(
 //   () =>
 //   listOfItems.map(item => ({
@@ -82,7 +91,8 @@ export const useGlobalGoals = () => {
     globalGoals,
     goalNodes,
     handleDelete,
-    alreadyStarred
+    alreadyStarred,
+    titleLinkOrNot
   }
 };
 
