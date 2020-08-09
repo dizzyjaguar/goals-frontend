@@ -10,7 +10,7 @@ export const useTodoDetail = () => {
   const history = useHistory();
   const todo = useSelector(getSingleTodo)
   let { _id } = useParams();
-
+  
   useEffect(() => {
     dispatch(setTodoRedux(_id))
   }, [])

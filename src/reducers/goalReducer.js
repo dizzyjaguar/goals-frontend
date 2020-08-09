@@ -1,11 +1,10 @@
 import { SET_GLOBAL_GOALS, SET_GLOBAL_GOAL, DELETE_GOAL, CREATE_GLOBAL_GOAL } from '../actions/goalActions';
-import { CREATE_STAR } from '../actions/starActions';
+
 
 const intitialState = {
   globalGoals: [],
   userGoals: [],
   goal: {},
-  star: {}
 };
 
 export default function reducer(state = intitialState, action) {

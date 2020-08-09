@@ -61,19 +61,11 @@ export const useGlobalGoals = () => {
     return <Goal
       goal={ goal }
       key= { goal._id }
-      handleDelete= {handleDelete}
+      // handleDelete= {handleDelete}
     />
   });
 
-  const titleLinkOrNot = (goal) => {
-    if(window.location.href.includes('goals')) {
-      return <Link to={`global/${goal._id}`}> <h2> {goal.title} </h2> </Link>
-    } else {
-      return <h2> {goal.title} </h2>
-    }
-  };
- 
-
+  
 //   const List = useMemo(
 //   () =>
 //   listOfItems.map(item => ({
@@ -92,7 +84,6 @@ export const useGlobalGoals = () => {
     goalNodes,
     handleDelete,
     alreadyStarred,
-    titleLinkOrNot
   }
 };
 
@@ -103,7 +94,7 @@ export const useGlobalGoalDetail = () => {
   const goal = useSelector(getGlobalGoal)
   let { _id } = useParams();
   
-
+  console.log(goal)
 
   useEffect(() => {
     dispatch(setGlobalGoalRedux(_id))
@@ -116,4 +107,4 @@ export const useGlobalGoalDetail = () => {
     goal
   }
   
-}
+};

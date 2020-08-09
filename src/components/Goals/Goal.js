@@ -1,13 +1,17 @@
 import React from 'react';
 
 import { useGlobalGoals } from '../../hooks/goalhooks/globalGoalHook';
+import { Link } from 'react-router-dom';
 
-const Goal = ({ goal, handleDelete }) => {
-  const { alreadyStarred, titleLinkOrNot } = useGlobalGoals();
+const Goal = ({ goal }) => {
+  const { alreadyStarred, handleDelete } = useGlobalGoals();
   
   return (
     <div className='Goal'>
-      {titleLinkOrNot(goal)}
+      {
+          window.location.href.includes('goals') 
+          ? <Link to={`goal/${goal._id}`}> <h3 > {goal.title} </h3> </Link> : <h3 > {goal.title} </h3>
+        }
       {/* create this into a link to view the people who have starred the goal */}
       {/* <h3>Stars:{goal.totalStars}</h3> */}
       {alreadyStarred(goal)}
