@@ -26,8 +26,6 @@ export const useCurrent = () => {
       return (
         <div className='Header'>
       <Link to='/'>Home</Link>
-      <Link to='/todos'>Todos</Link>
-      <Link to='/global/goals'>Global</Link>
       <Link to='/about'>About</Link>
       <Link to='/login'>Login</Link>
       <Link to='/signup'>Signup</Link>
