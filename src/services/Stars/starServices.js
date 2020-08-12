@@ -1,19 +1,19 @@
 const request = require('superagent');
 
 export const postStarRequest = (star) => {
-  return request.post('http://localhost:7890/api/v1/stars', star)
+  return request.post(`${process.env.REACT_APP_API_URL}/stars`, star)
   .withCredentials()
     .then(res => res.body)
 };
 
 export const getAllStarsRequest = () => {
-  return request.get('http://localhost:7890/api/v1/stars')
+  return request.get(`${process.env.REACT_APP_API_URL}/stars`)
   .withCredentials()
     .then(res => res.body)
 };
 
 export const deleteStarRequest = (star) => {
-  return request.delete(`http://localhost:7890/api/v1/stars/${star._id}`)
+  return request.delete(`${process.env.REACT_APP_API_URL}/stars/${star._id}`)
   .withCredentials()
     .then(res => res.body)
 };

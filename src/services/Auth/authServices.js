@@ -1,23 +1,23 @@
 import request from 'superagent';
 //consider adding in Email field in the User schema on the backend
 export const signupRequest = (newUser) => {
-  return request.post('http://localhost:7890/api/v1/auth/signup', newUser)
+  return request.post(`${process.env.REACT_APP_API_URL}/auth/signup`, newUser)
     .then(res => res.body)
 };
 
 export const loginRequest = (user) => {
-  return request.post('http://localhost:7890/api/v1/auth/login', user)
+  return request.post(`${process.env.REACT_APP_API_URL}/auth/login`, user)
   .withCredentials()
     .then(res => res.body)
 };
 
 export const verifyRequest = () => {
-  return request.get('http://localhost:7890/api/v1/auth/verify')
+  return request.get(`${process.env.REACT_APP_API_URL}/auth/verify`)
   .withCredentials()
     .then(res => res.body)
 };
 
 export const logoutRequest = () => {
-  return request.get('http://localhost:7890/api/v1/auth/logout')
+  return request.get(`${process.env.REACT_APP_API_URL}/auth/logout`)
     .then(res => res.body)
 };

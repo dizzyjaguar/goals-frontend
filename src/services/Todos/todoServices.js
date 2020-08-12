@@ -5,26 +5,26 @@ import request from 'superagent';
 // };
 
 export const getTodoById = (_id) => {
-  return request.get(`http://localhost:7890/api/v1/todos/${_id}`)
+  return request.get(`${process.env.API_URL}/todos/${_id}`)
     .then(res => res.body)
 }; 
 
 export const fetchTodos = () => {
-  return fetch('http://localhost:7890/api/v1/todos')
+  return fetch(`${process.env.REACT_APP_API_URL}/todos`)
     .then(res => res.json())
 };
 
 export const postTodo = (newTodo) => {
-  return request.post('http://localhost:7890/api/v1/todos', newTodo)
+  return request.post(`${process.env.REACT_APP_API_URL}/todos`, newTodo)
     .then(res => res.body)
 }
 
 export const patchTodo = (todo, updatedTodo) => {
-  return request.patch(`http://localhost:7890/api/v1/todos/${todo._id}`, updatedTodo)
+  return request.patch(`${process.env.REACT_APP_API_URL}/todos/${todo._id}`, updatedTodo)
     .then(res => res.body)
 }
 
 export const deleteTodoById = (todo) => {
-  return request.delete(`http://localhost:7890/api/v1/todos/${todo._id}`)
+  return request.delete(`${process.env.REACT_APP_API_URL}/todos/${todo._id}`)
     .then(res => res.body)
 }

@@ -1,23 +1,23 @@
 const request = require('superagent');
 
 export const postGoalRequest = (goal) => {
-  return request.post('http://localhost:7890/api/v1/goals', goal)
+  return request.post(`${process.env.REACT_APP_API_URL}/goals`, goal)
   .withCredentials()
     .then(res => res.body)
 };
 
 export const getAllGlobalGoalsRequest = () => {
-  return request.get('http://localhost:7890/api/v1/goals')
+  return request.get(`${process.env.REACT_APP_API_URL}/goals`)
     .then(res => res.body)
 };
 
 export const getGoalByIdRequest = (_id) => {
-  return request.get(`http://localhost:7890/api/v1/goals/${_id}`)
+  return request.get(`${process.env.REACT_APP_API_URL}/goals/${_id}`)
     .then(res => res.body)
 };
 
 export const deleteGoalRequest = (goal) => {
-  return request.delete(`http://localhost:7890/api/v1/goals/${goal._id}`)
+  return request.delete(`${process.env.REACT_APP_API_URL}//${goal._id}`)
   .withCredentials()
     .then(res => res.body)
 };
