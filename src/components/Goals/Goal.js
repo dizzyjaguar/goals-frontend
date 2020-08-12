@@ -17,6 +17,12 @@ const Goal = ({ goal }) => {
       {alreadyStarred(goal)}
       <p>{goal.description}</p>
       <p>created by:{goal.createdBy?.username}</p>
+      <form>
+        <textarea placeholder='add comment' />
+        <input type='submit' value='add comment'/>
+        
+      </form>
+      {/* this needs to only be available to the creator of the goal */}
       <button onClick={() => handleDelete(goal)}> Delete </button>
     </div>
   )
