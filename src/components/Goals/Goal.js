@@ -18,8 +18,8 @@ const Goal = ({ goal }) => {
       <p>{goal.description}</p>
       <p>created by:{goal.createdBy?.username}</p>
       <form>
-        <textarea placeholder='add comment' />
-        <input type='submit' value='add comment'/>
+        <textarea placeholder='give insight' />
+        <input type='button' value='Comment' onClick={() => console.log('hi')} />
         
       </form>
       {/* this needs to only be available to the creator of the goal */}

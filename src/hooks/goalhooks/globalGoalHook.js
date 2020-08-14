@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
@@ -16,6 +16,7 @@ export const useGlobalGoals = () => {
   // const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
+  
 
   useEffect(() => {
     dispatch(setGlobalGoalsRedux())
@@ -26,7 +27,6 @@ export const useGlobalGoals = () => {
       dispatch(setUserStars())
     }
   }, []);
-
 
   const handleDelete = (goal) => {
     dispatch(deleteGoalRedux(goal))
@@ -56,6 +56,7 @@ export const useGlobalGoals = () => {
       return <button onClick={() => handleDeleteStar(isStar)}> UnStar </button>
     };
   };
+
 
   
   
