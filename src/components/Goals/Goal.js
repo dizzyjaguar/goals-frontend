@@ -2,9 +2,11 @@ import React from 'react';
 
 import { useGlobalGoals } from '../../hooks/goalhooks/globalGoalHook';
 import { Link } from 'react-router-dom';
+import { useInsightHooks } from '../../hooks/goalhooks/insightFormHooks';
 
 const Goal = ({ goal }) => {
   const { alreadyStarred, handleDelete } = useGlobalGoals();
+  const { handleChange, handleSubmit, insightValue } = useInsightHooks();
   
   return (
     <div className='Goal'>
@@ -18,8 +20,8 @@ const Goal = ({ goal }) => {
       <p>{goal.description}</p>
       <p>created by:{goal.createdBy?.username}</p>
       <form>
-        <textarea placeholder='give insight' />
-        <input type='button' value='Comment' onClick={() => console.log('hi')} />
+        <textarea placeholder='give insight' name={'insight'} value={insightValue} onChange={handleChange} />
+        <input type='button' value='Comment' onClick={() => handleSubmit(goal)} />
         
       </form>
       {/* this needs to only be available to the creator of the goal */}
