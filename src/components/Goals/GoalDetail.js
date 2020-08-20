@@ -9,6 +9,7 @@ const GoalDetail = () => {
     <>
       <Goal 
         goal={goal}
+        detailOrNot={true}
       />
     </>
   )

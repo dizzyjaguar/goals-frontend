@@ -57,13 +57,16 @@ export const useGlobalGoals = () => {
     };
   };
 
+  
+
 
   
   
   const goalNodes = globalGoals.map(goal => {
     return <Goal
       goal={ goal }
-      key= { goal._id }
+      key={ goal._id }
+      detailOrNot={false}
     />
   });
 
@@ -83,7 +86,6 @@ export const useGlobalGoalDetail = () => {
   const goal = useSelector(getGlobalGoal)
   let { _id } = useParams();
   
-  console.log(goal)
 
   useEffect(() => {
     dispatch(setGlobalGoalRedux(_id))
