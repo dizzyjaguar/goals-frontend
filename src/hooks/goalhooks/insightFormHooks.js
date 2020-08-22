@@ -25,7 +25,8 @@ export const useInsightHooks = () => {
     }
 
     dispatch(createInsightRedux(insightObj))
-  }
+  };
+
 
   return {
     handleChange,
