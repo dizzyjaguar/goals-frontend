@@ -1,13 +1,13 @@
 import { SET_GLOBAL_GOALS, SET_GLOBAL_GOAL, DELETE_GOAL, CREATE_GLOBAL_GOAL } from '../actions/goalActions';
 
 
-const intitialState = {
+const initialState = {
   globalGoals: [],
   userGoals: [],
   goal: {},
 };
 
-export default function reducer(state = intitialState, action) {
+export default function reducer(state = initialState, action) {
   switch(action.type) {
     case SET_GLOBAL_GOALS:
       return {
