@@ -6,3 +6,7 @@ export const postInsightRequest = (insight) => {
     .then(res => res.body)
 };
 
+export const getAllInsightsRequest = (goalId) => {
+  return request.get(`${process.env.REACT_APP_API_URL}/insights/${goalId}`)
+    .then(res => res.body)
+};
