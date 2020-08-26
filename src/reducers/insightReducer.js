@@ -1,4 +1,4 @@
-import { SET_INSIGHTS } from '../actions/insightActions';
+import { SET_INSIGHTS, CREATE_INSIGHT } from '../actions/insightActions';
 
 const initialState = {
   insights: []
@@ -9,6 +9,10 @@ export default function reducer(state = initialState, action) {
     case SET_INSIGHTS:
       return {
         ...state, insights: action.payload 
+      }
+    case CREATE_INSIGHT:
+      return { 
+        ...state, insights: [...state.insights, action.payload]
       }
 
     default:

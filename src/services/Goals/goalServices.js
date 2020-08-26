@@ -17,7 +17,7 @@ export const getGoalByIdRequest = (_id) => {
 };
 
 export const deleteGoalRequest = (goal) => {
-  return request.delete(`${process.env.REACT_APP_API_URL}/${goal._id}`)
+  return request.delete(`${process.env.REACT_APP_API_URL}/goals/${goal._id}`)
   .withCredentials()
     .then(res => res.body)
 };

@@ -8,6 +8,7 @@ import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
 import { getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
+import { setInsightsRedux } from '../../actions/insightActions';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
@@ -89,8 +90,11 @@ export const useGlobalGoalDetail = () => {
 
   useEffect(() => {
     dispatch(setGlobalGoalRedux(_id))
-      .then()
   }, [])
+
+  useEffect(() => {
+    dispatch(setInsightsRedux(_id))
+  }, [goal])
 
   
 
