@@ -47,7 +47,7 @@ export const useGlobalGoals = () => {
 
   
   const alreadyStarred = (goal) => {
-    const isStar = starredGoals.find(star => star.goal._id || star.goal === goal._id);
+    const isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
   
     if(!user) {
       return null
