@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGlobalGoals, getGlobalGoal } from '../../selectors/goalSelector';
+import { getGlobalGoals, getGlobalGoal, getInsights } from '../../selectors/goalSelector';
 import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
 import { useParams, Link } from 'react-router-dom';
@@ -85,6 +85,7 @@ export const useGlobalGoals = () => {
 export const useGlobalGoalDetail = () => {
   const dispatch = useDispatch();
   const goal = useSelector(getGlobalGoal)
+  const insights = useSelector(getInsights)
   let { _id } = useParams();
   
 
@@ -95,6 +96,8 @@ export const useGlobalGoalDetail = () => {
   useEffect(() => {
     dispatch(setInsightsRedux(_id))
   }, [goal])
+
+  console.log(insights)
 
   
 
