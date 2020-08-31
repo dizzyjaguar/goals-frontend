@@ -98,9 +98,12 @@ export const useGlobalGoalDetail = () => {
     dispatch(setInsightsRedux(_id))
   }, [goal])
 
-  console.log(insights)
+  //this just returns three comments from the total insights array, need to create a button that 
+  //will double the number of comments sliced everytime it is clicked up until the total number of items
+  //in the insights array
+  const threeComments = insights.slice(2);
 
-  const insightNodes = insights.map(insight => {
+  const insightNodes = threeComments.map(insight => {
     return <Insight insight={ insight } key={ insight._id } />
   });
 
