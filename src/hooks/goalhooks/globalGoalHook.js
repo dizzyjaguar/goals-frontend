@@ -46,7 +46,7 @@ export const useGlobalGoals = () => {
   };
 
   
-  const alreadyStarred = (goal) => {
+  const findStarredGoalsButton = (goal) => {
     const isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
   
     if(!user) {
@@ -76,7 +76,7 @@ export const useGlobalGoals = () => {
     globalGoals,
     goalNodes,
     handleDelete,
-    alreadyStarred,
+    findStarredGoalsButton,
   }
 };
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useInsightHooks } from '../../hooks/goalhooks/insightFormHooks';
 
 const Goal = ({ goal, detailOrNot }) => {
-  const { alreadyStarred, handleDelete } = useGlobalGoals();
+  const { findStarredGoalsButton, handleDelete } = useGlobalGoals();
   const { handleChange, handleSubmit, insightValue } = useInsightHooks();
   
   return (
@@ -18,7 +18,7 @@ const Goal = ({ goal, detailOrNot }) => {
       {/* create this into a link to view the people who have starred the goal */}
       {/* <h3>Stars:{goal.totalStars}</h3> */}
 
-      {alreadyStarred(goal)}
+      {findStarredGoalsButton(goal)}
 
       <p>{goal.description}</p>
       <p>created by:{goal.createdBy?.username}</p>
