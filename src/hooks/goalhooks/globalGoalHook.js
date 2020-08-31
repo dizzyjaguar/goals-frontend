@@ -9,6 +9,7 @@ import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/st
 import { getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
 import { setInsightsRedux } from '../../actions/insightActions';
+import Insight from '../../components/Insights/Insight';
 
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
@@ -99,10 +100,15 @@ export const useGlobalGoalDetail = () => {
 
   console.log(insights)
 
+  const insightNodes = insights.map(insight => {
+    return <Insight insight={ insight } key={ insight._id } />
+  });
+
   
 
   return {
-    goal
+    goal,
+    insightNodes
   }
   
 };

@@ -43,7 +43,7 @@ const Goal = ({ goal, detailOrNot }) => {
         {/* this needs to only be available to the creator of the goal */}
         <button onClick={() => handleDelete(goal)}> Delete </button>
       </div>
-      <Insight />
+      
     </>
   )
 }
