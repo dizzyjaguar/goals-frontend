@@ -87,7 +87,9 @@ export const useGlobalGoalDetail = () => {
   const dispatch = useDispatch();
   const goal = useSelector(getGlobalGoal)
   const insights = useSelector(getInsights)
+  const [amountToShow, setAmountToShow] = useState(0)
   let { _id } = useParams();
+  
   
 
   useEffect(() => {
@@ -102,6 +104,16 @@ export const useGlobalGoalDetail = () => {
   //will double the number of comments sliced everytime it is clicked up until the total number of items
   //in the insights array
   const threeComments = insights.slice(2);
+
+  //this handler needs to be called everytime a button is pressed 
+  const handleShowComments = (amount, insightsArr) => {
+    const slicedInsights = insightsArr.slice(amount)
+    setAmountToShow(amountToShow + 3);
+
+    return slicedInsights;
+  };
+  //this variable below is causing an infinite loop
+  // const amountOfInsights = handleShowComments(amountToShow, insights)
 
   const insightNodes = threeComments.map(insight => {
     return <Insight insight={ insight } key={ insight._id } />
