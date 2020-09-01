@@ -107,15 +107,20 @@ export const useGlobalGoalDetail = () => {
 
   //this handler needs to be called everytime a button is pressed 
   const handleShowComments = (amount, insightsArr) => {
-    const slicedInsights = insightsArr.slice(amount)
-    setAmountToShow(amountToShow + 3);
+    const slicedInsights = insightsArr.slice(0, amount)
+    // setAmountToShow(amountToShow + 3);
 
     return slicedInsights;
   };
-  //this variable below is causing an infinite loop
-  // const amountOfInsights = handleShowComments(amountToShow, insights)
 
-  const insightNodes = threeComments.map(insight => {
+  const handleIncrease = () => {
+    setAmountToShow(amountToShow + 3)
+  };
+
+  //this variable below is causing an infinite loop
+  const amountOfInsights = handleShowComments(amountToShow, insights)
+  console.log(amountOfInsights)
+  const insightNodes = amountOfInsights.map(insight => {
     return <Insight insight={ insight } key={ insight._id } />
   });
 
@@ -123,7 +128,10 @@ export const useGlobalGoalDetail = () => {
 
   return {
     goal,
-    insightNodes
+    insightNodes,
+    handleShowComments,
+    handleIncrease
+    
   }
   
 };

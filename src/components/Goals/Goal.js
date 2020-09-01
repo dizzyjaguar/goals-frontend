@@ -33,7 +33,7 @@ const Goal = ({ goal, detailOrNot }) => {
               <input type='button' value='Comment' onClick={() => handleSubmit(goal)} />
             </form>
 
-            <button onClick={() => console.log('this would reveal ')}>Insights</button>
+            {/* <button onClick={() => console.log('this would reveal ')}>Insights</button> */}
             </>
 
 
