@@ -3,7 +3,7 @@ import Goal from './Goal';
 import { useGlobalGoalDetail } from '../../hooks/goalhooks/globalGoalHook';
 
 const GoalDetail = () => {
-  const { goal, insightNodes, handleIncrease } = useGlobalGoalDetail()
+  const { goal, insightNodes, handleShowMoreInsights } = useGlobalGoalDetail()
 
   return (
     <>
@@ -11,7 +11,7 @@ const GoalDetail = () => {
         goal={goal}
         detailOrNot={true}
       />
-    <button onClick={() => handleIncrease()}> Comments </button>
+    <button onClick={() => handleShowMoreInsights()}> Comments </button>
     {insightNodes}
     </>
   )

@@ -100,25 +100,18 @@ export const useGlobalGoalDetail = () => {
     dispatch(setInsightsRedux(_id))
   }, [goal])
 
-  //this just returns three comments from the total insights array, need to create a button that 
-  //will double the number of comments sliced everytime it is clicked up until the total number of items
-  //in the insights array
-  const threeComments = insights.slice(2);
-
-  //this handler needs to be called everytime a button is pressed 
-  const handleShowComments = (amount, insightsArr) => {
-    const slicedInsights = insightsArr.slice(0, amount)
-    // setAmountToShow(amountToShow + 3);
-
-    return slicedInsights;
+  
+  
+  const slicedInisghts = (amount, insightsArr) => {
+    return insightsArr.slice(0, amount);
   };
 
-  const handleIncrease = () => {
+  const handleShowMoreInsights = () => {
     setAmountToShow(amountToShow + 3)
   };
 
   //this variable below is causing an infinite loop
-  const amountOfInsights = handleShowComments(amountToShow, insights)
+  const amountOfInsights = slicedInisghts(amountToShow, insights)
   console.log(amountOfInsights)
   const insightNodes = amountOfInsights.map(insight => {
     return <Insight insight={ insight } key={ insight._id } />
@@ -129,8 +122,7 @@ export const useGlobalGoalDetail = () => {
   return {
     goal,
     insightNodes,
-    handleShowComments,
-    handleIncrease
+    handleShowMoreInsights
     
   }
   
