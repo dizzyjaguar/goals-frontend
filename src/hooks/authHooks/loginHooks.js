@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import { loginRedux, verifyRedux } from '../../actions/authActions';
-import { getUser } from '../../selectors/authSelector';
+import { getUser, getAuthLoading } from '../../selectors/authSelector';
 import { useEffect } from 'react';
 
 export const useLogin = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(getAuthLoading)
   const [values, setValues] = useState({
     username: '',
     password: ''
@@ -28,7 +29,8 @@ export const useLogin = () => {
   return {
     values,
     handleChange,
-    handleLogin
+    handleLogin,
+    loading
   }
 };
 

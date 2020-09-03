@@ -2,8 +2,8 @@ import React from 'react'
 import { useLogin } from '../../hooks/authHooks/loginHooks';
 
 const Login = () => {
-  const { values, handleChange, handleLogin } = useLogin();
-
+  const { values, handleChange, handleLogin, loading } = useLogin();
+  console.log(loading)
   return (
     <>
       <form className='Login-form'>
