@@ -1,14 +1,18 @@
 import React from 'react'
 import { useLogin } from '../../hooks/authHooks/loginHooks';
 import { Link } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
+import { useBootstrap } from '../../hooks/bootstrapHooks';
+
 
 const Login = () => {
   const { values, handleChange, handleLogin, user, loading } = useLogin();
-  console.log(loading)
+  const { spinner } = useBootstrap();
+  // console.log(loading)
   return (
     <>
       {
-        loading ? <h1>loading</h1> :
+        loading ? {spinner} :
         user ? <Link to='/global/goals'>View Goals</Link> :
       <form className='Login-form'>
         <label>
