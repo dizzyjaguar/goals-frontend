@@ -6,6 +6,8 @@ const Login = () => {
   console.log(loading)
   return (
     <>
+      {
+        loading ? <h1>loading</h1> :
       <form className='Login-form'>
         <label>
           Username:
@@ -17,6 +19,7 @@ const Login = () => {
         </label>
         <button type='submit' onClick={handleLogin}>Login</button>
       </form>
+      }
     </>
   )
 }
