@@ -1,13 +1,15 @@
 import React from 'react'
 import { useLogin } from '../../hooks/authHooks/loginHooks';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const { values, handleChange, handleLogin, loading } = useLogin();
+  const { values, handleChange, handleLogin, user, loading } = useLogin();
   console.log(loading)
   return (
     <>
       {
         loading ? <h1>loading</h1> :
+        user ? <Link to='/global/goals'>View Goals</Link> :
       <form className='Login-form'>
         <label>
           Username:
