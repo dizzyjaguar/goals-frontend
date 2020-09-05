@@ -7,7 +7,7 @@ import {
 import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
 import About from '../About/About';
-import './App.css';
+import './App.scss';
 import List from '../List/List';
 import Detail from '../Detail/Detail';
 import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
