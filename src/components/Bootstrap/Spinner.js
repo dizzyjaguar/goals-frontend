@@ -6,7 +6,7 @@ import './bootstrap.scss'
 
 const SpinnerBlue = () => (
   <>
-    <Spinner animation="border" variant="primary" />
+    <Spinner animation="grow" variant="primary" />
   </>
 )
 

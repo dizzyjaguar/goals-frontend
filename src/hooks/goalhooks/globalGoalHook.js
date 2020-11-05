@@ -14,8 +14,8 @@ import Insight from '../../components/Insights/Insight';
 export const useGlobalGoals = () => {
   const dispatch = useDispatch();
   // this is making an error when not signed in
-  const user = useVerifyUser();
-  // const user = useSelector(getUser)
+  // const user = useVerifyUser();
+  const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
   
