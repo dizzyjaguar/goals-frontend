@@ -4,7 +4,7 @@ import { getGlobalGoals, getGlobalGoal, getInsights } from '../../selectors/goal
 import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
 import { useParams, Link } from 'react-router-dom';
-import { useVerifyUser } from '../authHooks/currentHooks';
+// import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
 import { getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
