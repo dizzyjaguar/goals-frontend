@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLogin } from '../../hooks/authHooks/loginHooks';
 import { Link } from 'react-router-dom';
-import SpinnerBlue from '../Bootstrap/Spinner';
+
 
 
 
@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <>
       {           ///////////somethings wrong here
-        loading ? <SpinnerBlue /> :
+        loading ? <h1>loading...</h1> :
         user ? <Link to='/global/goals'>View Goals</Link> :
       <form className='Login-form'>
         <label>
