@@ -32,6 +32,7 @@ export const useProfile = () => {
 
   return {
     user,
+    starredGoals,
     loggedInOrNotGreeting
   }
 }

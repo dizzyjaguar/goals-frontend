@@ -19,7 +19,7 @@ export const useCurrent = () => {
       {/* make username at the end of profile link, might need to be done in Route on App */}
       <Link to='/profile'>Profile</Link>
       <Link to='/about'>About</Link>
-      <button onClick={handleLogout}>LOGOUT</button>
+      <Link onClick={handleLogout}>Logout</Link>
     </div>
       )
     } else if (!user) {
