@@ -9,7 +9,7 @@ const Profile = () => {
     <>
     {loggedInOrNotGreeting()}
     <h2>Created Goals</h2>
-
+      
     <h2>Starred Goals</h2>
     <div>
       {starredGoals.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}  >{goal.goal.title}</Link> <br/> </>)}

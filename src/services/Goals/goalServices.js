@@ -11,6 +11,11 @@ export const getAllGlobalGoalsRequest = () => {
     .then(res => res.body)
 };
 
+export const getAllGoalsByUserRequest = (user) => {
+  return request.get(`${process.env.REACT_APP_API_URL}/goals/created/${user}`)
+    .then(res => res.body)
+};
+
 export const getGoalByIdRequest = (_id) => {
   return request.get(`${process.env.REACT_APP_API_URL}/goals/${_id}`)
     .then(res => res.body)

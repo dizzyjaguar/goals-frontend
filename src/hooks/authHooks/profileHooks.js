@@ -4,6 +4,7 @@ import { getUser } from '../../selectors/authSelector';
 import { setUserStars } from '../../actions/starActions';
 import { useVerifyUser } from './currentHooks';
 import { getUserItems } from '../../selectors/userSelector';
+import { setUserGoalsRedux } from '../../actions/goalActions';
 
 
 export const useProfile = () => {
@@ -11,11 +12,11 @@ export const useProfile = () => {
   const user = useVerifyUser();
   const userItems = useSelector(getUserItems)
   const starredGoals = userItems.starredGoals
-  console.log(starredGoals)
   
   useEffect(() => {
     if (user !== null) {
       dispatch(setUserStars())
+      dispatch(setUserGoalsRedux(user._id))
     } else {
       return;
     }

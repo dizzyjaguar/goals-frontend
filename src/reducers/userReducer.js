@@ -1,11 +1,10 @@
+import { SET_USER_GOALS } from '../actions/goalActions';
 import { SET_USER_STARS, CREATE_STAR, DELETE_STAR } from '../actions/starActions';
 
 const intitialState = {
-  userGoals: {
-    createdGoals: [],
     completedGoals: [],
     currentGoals: [],
-  },
+    createdGoals: [],
     starredGoals: [],
 };
 
@@ -14,6 +13,10 @@ export default function reducer(state = intitialState, action) {
     case SET_USER_STARS:
       return {
         ...state, starredGoals: action.payload
+      }
+    case SET_USER_GOALS:
+      return {
+        ...state, createdGoals: action.payload
       }
     case CREATE_STAR:
       return {

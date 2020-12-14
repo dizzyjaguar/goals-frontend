@@ -12,7 +12,7 @@ const Login = () => {
   // console.log(loading)
   return (
     <>
-      {           ///////////somethings wrong here
+      {
         loading ? <h1>loading...</h1> :
         user ? <Link to='/global/goals'>View Goals</Link> :
       <form className='Login-form'>
