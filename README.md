@@ -1,6 +1,6 @@
 # GOALS APP 
 ## FRONT-END REPO
-### Built With React
+### Built With React, Redux
 ---
 
 

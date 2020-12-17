@@ -1,9 +1,13 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import { loginRedux } from '../../actions/authActions';
+import { getUser, getAuthLoading } from '../../selectors/authSelector';
+
 
 export const useLogin = () => {
   const dispatch = useDispatch();
+  const loading = useSelector(getAuthLoading)
+  const user = useSelector(getUser)
   const [values, setValues] = useState({
     username: '',
     password: ''
@@ -26,6 +30,9 @@ export const useLogin = () => {
   return {
     values,
     handleChange,
-    handleLogin
+    handleLogin,
+    user,
+    loading
   }
 };
+

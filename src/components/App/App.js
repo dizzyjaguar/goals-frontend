@@ -5,15 +5,17 @@ import {
   BrowserRouter as Router, 
 } from 'react-router-dom';
 import Header from '../Header/Header';
-import Landing from '../Landing.js/Landing';
+import Landing from '../Landing/Landing';
 import About from '../About/About';
-import './App.css';
+import './App.scss';
 import List from '../List/List';
 import Detail from '../Detail/Detail';
 import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import Signup from '../User/Signup';
 import Login from '../User/Login';
 import Profile from '../User/Profile';
+import GoalList from '../Goals/GoalList';
+import GoalDetail from '../Goals/GoalDetail';
 
 
 
@@ -31,6 +33,8 @@ export default function App() {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />
+          <Route exact path='/global/goals' component={GoalList} />
+          <Route exact path='/global/goal/:_id' component={GoalDetail} />
           {/* <Route exact path='/tests/form' component={} /> */}
           
         </Switch>
