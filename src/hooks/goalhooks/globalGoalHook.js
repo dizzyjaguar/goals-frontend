@@ -59,7 +59,9 @@ export const useGlobalGoals = () => {
     };
   };
 
-  
+  const handleCompleteGoal = (goal) => {
+    
+  }
 
 
   
