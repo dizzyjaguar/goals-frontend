@@ -28,8 +28,6 @@ export default function App() {
           <Route exact path='/' component={Landing} />
           <Route exact path='/todos' component={List} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/todo/:_id' component={Detail} />
-          <Route exact path='/todo/update/:_id' component={UpdateTodoForm} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />

@@ -21,7 +21,7 @@ export const getGoalByIdRequest = (_id) => {
     .then(res => res.body)
 };
 
-export const completeGoalRequest = ()
+// export const completeGoalRequest = ()
 
 export const deleteGoalRequest = (goal) => {
   return request.delete(`${process.env.REACT_APP_API_URL}/goals/${goal._id}`)
