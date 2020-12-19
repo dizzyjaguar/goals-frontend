@@ -1,4 +1,4 @@
-import { getAllGlobalGoalsRequest, getGoalByIdRequest, deleteGoalRequest, postGoalRequest, getAllGoalsByUserRequest } from '../services/Goals/goalServices';
+import { getAllGlobalGoalsRequest, getGoalByIdRequest, deleteGoalRequest, postGoalRequest, getAllGoalsByUserRequest, completeGoalRequest } from '../services/Goals/goalServices';
 
 export const SET_GLOBAL_GOALS = 'SET_GLOBAL_GOALS';
 export const setGlobalGoalsRedux = () => dispatch => {
@@ -40,3 +40,11 @@ export const deleteGoalRedux = (goal) => dispatch => {
       dispatch({ type: DELETE_GOAL, payload: res });
     });
 };
+
+export const COMPLETE_GOAL = 'COMPLETE_GOAL';
+export const completeGoalRedux = (user, goal) => dispatch => {
+  return completeGoalRequest(user, goal)
+    .then(res => {
+      dispatch({ type: COMPLETE_GOAL, payload: res })
+    })
+}

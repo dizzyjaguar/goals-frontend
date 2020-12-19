@@ -9,8 +9,6 @@ import Landing from '../Landing/Landing';
 import About from '../About/About';
 import './App.scss';
 import List from '../List/List';
-import Detail from '../Detail/Detail';
-import UpdateTodoForm from '../UpdateTodoForm/UpdateTodoForm';
 import Signup from '../User/Signup';
 import Login from '../User/Login';
 import Profile from '../User/Profile';

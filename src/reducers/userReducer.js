@@ -1,4 +1,4 @@
-import { SET_USER_GOALS } from '../actions/goalActions';
+import { COMPLETE_GOAL, SET_USER_GOALS } from '../actions/goalActions';
 import { SET_USER_STARS, CREATE_STAR, DELETE_STAR } from '../actions/starActions';
 
 const intitialState = {
@@ -10,6 +10,10 @@ const intitialState = {
 
 export default function reducer(state = intitialState, action) {
   switch(action.type) {
+    case COMPLETE_GOAL:
+      return {
+        ...state, completedGoals: action.payload
+      }
     case SET_USER_STARS:
       return {
         ...state, starredGoals: action.payload

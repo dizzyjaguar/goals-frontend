@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGlobalGoals, getGlobalGoal, getInsights } from '../../selectors/goalSelector';
-import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
+import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux, completeGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
 import { useParams, Link } from 'react-router-dom';
 // import { useVerifyUser } from '../authHooks/currentHooks';
@@ -60,8 +60,8 @@ export const useGlobalGoals = () => {
   };
 
   const handleCompleteGoal = (goal) => {
-    
-  }
+    dispatch(completeGoalRedux(user.id, goal._id))
+  };
 
 
   
@@ -79,6 +79,7 @@ export const useGlobalGoals = () => {
     globalGoals,
     goalNodes,
     handleDelete,
+    handleCompleteGoal,
     findStarredGoalsButton,
   }
 };
