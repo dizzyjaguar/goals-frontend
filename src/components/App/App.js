@@ -8,7 +8,6 @@ import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
 import About from '../About/About';
 import './App.scss';
-import List from '../List/List';
 import Signup from '../User/Signup';
 import Login from '../User/Login';
 import Profile from '../User/Profile';
@@ -24,7 +23,6 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route exact path='/todos' component={List} />
           <Route exact path='/about' component={About} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />

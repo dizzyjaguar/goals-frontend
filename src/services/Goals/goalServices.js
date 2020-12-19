@@ -22,7 +22,7 @@ export const getGoalByIdRequest = (_id) => {
 };
 
 export const completeGoalRequest = (user, goal) => {
-  return request.patch(`${process.env.REACT_APP_API_URL}/user/complete/${user}`, goal)
+  return request.patch(`${process.env.REACT_APP_API_URL}/user/complete/${user}`, { goal: goal })
     .then(res => res.body)
 };
 
