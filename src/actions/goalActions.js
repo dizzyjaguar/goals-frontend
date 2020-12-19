@@ -45,6 +45,6 @@ export const COMPLETE_GOAL = 'COMPLETE_GOAL';
 export const completeGoalRedux = (user, goal) => dispatch => {
   return completeGoalRequest(user, goal)
     .then(res => {
-      dispatch({ type: COMPLETE_GOAL, payload: res })
+      dispatch({ type: COMPLETE_GOAL, payload: res.completedGoals })
     })
 }
