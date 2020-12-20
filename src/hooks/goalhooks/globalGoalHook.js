@@ -6,7 +6,7 @@ import Goal from '../../components/Goals/Goal';
 import { useParams, Link } from 'react-router-dom';
 // import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
-import { getUserStars } from '../../selectors/userSelector';
+import { getUserCompleted, getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
 import { setInsightsRedux } from '../../actions/insightActions';
 import Insight from '../../components/Insights/Insight';
@@ -18,6 +18,7 @@ export const useGlobalGoals = () => {
   const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
+  const completedGoals = useSelector(getUserCompleted);
   
 
   useEffect(() => {
@@ -62,6 +63,10 @@ export const useGlobalGoals = () => {
   const handleCompleteGoal = (goal) => {
     dispatch(completeGoalRedux(user.id, goal._id))
   };
+
+  // const completedButton = goal => {
+  //   const isComplete = completedGoals.find(goal => )
+  // }
 
 
   
