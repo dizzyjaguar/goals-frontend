@@ -63,10 +63,11 @@ export const useGlobalGoals = () => {
   const handleCompleteGoal = (goal) => {
     dispatch(completeGoalRedux(user.id, goal._id))
   };
+  
 
-  // const completedButton = goal => {
-  //   const isComplete = completedGoals.find(goal => )
-  // }
+  const completedButton = goal => {
+    const isComplete = completedGoals.find(completedGoal => completedGoal === goal._id)
+  }
 
 
   
