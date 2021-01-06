@@ -49,7 +49,12 @@ export const useGlobalGoals = () => {
 
   
   const findStarredGoalsButton = (goal) => {
-    const isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
+    let isStar;
+    if(user) {
+      isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
+    } else {
+      return
+    }
   
     if(!user) {
       return null
