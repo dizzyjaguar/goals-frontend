@@ -70,9 +70,22 @@ export const useGlobalGoals = () => {
   };
   
 
-  const completedButton = goal => {
-    const isComplete = completedGoals.find(completedGoal => completedGoal === goal._id)
-  }
+  const completedButton = (goal) => {
+    let isComplete;
+    if(user) {
+      isComplete = completedGoals.find(completedGoal => completedGoal === goal._id);
+    } else {
+      return
+    }
+
+    if(!user) {
+      return null
+    } else if(!isComplete) {
+      return <button onClick={() => handleCompleteGoal(goal)}> Complete </button>
+    } else if(isComplete) {
+      return <button>Completed</button>
+    }
+  };
 
 
   
@@ -92,6 +105,7 @@ export const useGlobalGoals = () => {
     handleDelete,
     handleCompleteGoal,
     findStarredGoalsButton,
+    completedButton
   }
 };
 
