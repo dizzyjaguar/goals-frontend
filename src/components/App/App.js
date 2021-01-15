@@ -21,10 +21,7 @@ import Dashboard from '../Dashboard/Dashboard';
 
 export default function App() {
   const { user } = useProfile();
-
-  console.log(user)
   
-
   return (
     <Router>
       <div className='App'>
@@ -33,10 +30,12 @@ export default function App() {
           <Route exact path='/'>
             {user ? <Redirect to='/dashboard' /> : <Landing /> }
           </Route>
+          <Route exact path='/dashboard'>
+            {user ? <Dashboard /> : <Landing /> }
+          </Route>
           <Route exact path='/about' component={About} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/global/goals' component={GoalList} />
           <Route exact path='/global/goal/:_id' component={GoalDetail} />
