@@ -34,7 +34,9 @@ export default function App() {
             {user ? <Dashboard /> : <Landing /> }
           </Route>
           <Route exact path='/about' component={About} />
-          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/signup' component={Signup}>
+          {user ? <Dashboard /> : <Signup />}
+          </Route>
           <Route exact path='/login'>
             {user ? <Dashboard /> : <Login />}
           </Route>
