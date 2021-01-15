@@ -73,7 +73,7 @@ export const useGlobalGoals = () => {
   const completedButton = (goal) => {
     let isComplete;
     if(user) {
-      isComplete = completedGoals.find(completedGoal => completedGoal === goal._id);
+      isComplete = completedGoals.find(completedGoal => completedGoal === goal._id || completedGoal._id === goal._id);
     } else {
       return
     }
