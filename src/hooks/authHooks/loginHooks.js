@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react';
-import { loginRedux } from '../../actions/authActions';
+import { useEffect, useState } from 'react';
+import { getUserByIdRedux, loginRedux } from '../../actions/authActions';
 import { getUser, getAuthLoading } from '../../selectors/authSelector';
 
 
@@ -12,6 +12,7 @@ export const useLogin = () => {
     username: '',
     password: ''
   });
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const handleChange = (event) => {
     const { target } = event;
@@ -25,7 +26,18 @@ export const useLogin = () => {
     event.preventDefault()
 
     dispatch(loginRedux(values))
+    setLoggedIn(true)
+
   };
+  
+  // this is close to working but causes infinite loop for some reason
+  // if (loggedIn === true  && loading === false) {
+  //   dispatch(getUserByIdRedux(user))
+  //   setLoggedIn(false)
+  // }
+
+  
+  
 
   return {
     values,

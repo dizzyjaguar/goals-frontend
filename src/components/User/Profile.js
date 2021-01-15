@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
 
 const Profile = () => {
-  const { user, starredGoals, createdGoals, loggedInOrNotGreeting } = useProfile();
+  const { user, starredGoals, createdGoals, completedGoals, loggedInOrNotGreeting } = useProfile();
   console.log(createdGoals)
   console.log(starredGoals)
 
@@ -18,7 +18,7 @@ const Profile = () => {
     </div>
 
     <h2>Completed Goals</h2>
-    
+      {completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>)}
     </>
   )
 }

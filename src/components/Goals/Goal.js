@@ -6,7 +6,7 @@ import { useInsightHooks } from '../../hooks/goalhooks/insightFormHooks';
 import Insight from '../Insights/Insight';
 
 const Goal = ({ goal, detailOrNot }) => {
-  const { findStarredGoalsButton, handleDelete } = useGlobalGoals();
+  const { findStarredGoalsButton, completedButton, handleDelete, } = useGlobalGoals();
   const { handleChange, handleSubmit, insightValue } = useInsightHooks();
   
   return (
@@ -41,6 +41,8 @@ const Goal = ({ goal, detailOrNot }) => {
           }
         
         {/* this needs to only be available to the creator of the goal */}
+        {/* <button onClick={() => handleCompleteGoal(goal)}> Complete </button> */}
+        {completedButton(goal)}
         <button onClick={() => handleDelete(goal)}> Delete </button>
       </div>
       

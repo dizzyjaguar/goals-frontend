@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGlobalGoals, getGlobalGoal, getInsights } from '../../selectors/goalSelector';
-import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux } from '../../actions/goalActions';
+import { setGlobalGoalsRedux, setGlobalGoalRedux, deleteGoalRedux, completeGoalRedux } from '../../actions/goalActions';
 import Goal from '../../components/Goals/Goal';
 import { useParams, Link } from 'react-router-dom';
 // import { useVerifyUser } from '../authHooks/currentHooks';
 import { createStarRedux, setUserStars, deleteStarRedux } from '../../actions/starActions';
-import { getUserStars } from '../../selectors/userSelector';
+import { getUserCompleted, getUserStars } from '../../selectors/userSelector';
 import { getUser } from '../../selectors/authSelector';
 import { setInsightsRedux } from '../../actions/insightActions';
 import Insight from '../../components/Insights/Insight';
@@ -18,6 +18,7 @@ export const useGlobalGoals = () => {
   const user = useSelector(getUser)
   const globalGoals = useSelector(getGlobalGoals);
   const starredGoals = useSelector(getUserStars);
+  const completedGoals = useSelector(getUserCompleted);
   
 
   useEffect(() => {
@@ -48,7 +49,12 @@ export const useGlobalGoals = () => {
 
   
   const findStarredGoalsButton = (goal) => {
-    const isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
+    let isStar;
+    if(user) {
+      isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
+    } else {
+      return
+    }
   
     if(!user) {
       return null
@@ -60,8 +66,26 @@ export const useGlobalGoals = () => {
   };
 
   const handleCompleteGoal = (goal) => {
-    
-  }
+    dispatch(completeGoalRedux(user.id, goal._id))
+  };
+  
+
+  const completedButton = (goal) => {
+    let isComplete;
+    if(user) {
+      isComplete = completedGoals.find(completedGoal => completedGoal === goal._id || completedGoal._id === goal._id);
+    } else {
+      return
+    }
+
+    if(!user) {
+      return null
+    } else if(!isComplete) {
+      return <button onClick={() => handleCompleteGoal(goal)}> Complete </button>
+    } else if(isComplete) {
+      return <span>Completed</span>
+    }
+  };
 
 
   
@@ -79,7 +103,9 @@ export const useGlobalGoals = () => {
     globalGoals,
     goalNodes,
     handleDelete,
+    handleCompleteGoal,
     findStarredGoalsButton,
+    completedButton
   }
 };
 
