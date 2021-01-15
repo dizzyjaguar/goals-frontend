@@ -35,7 +35,9 @@ export default function App() {
           </Route>
           <Route exact path='/about' component={About} />
           <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/login'>
+            {user ? <Dashboard /> : <Login />}
+          </Route>
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/global/goals' component={GoalList} />
           <Route exact path='/global/goal/:_id' component={GoalDetail} />

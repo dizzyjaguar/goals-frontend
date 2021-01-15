@@ -18,7 +18,7 @@ const Profile = () => {
     </div>
 
     <h2>Completed Goals</h2>
-      {/* {completedGoals.map((goal) => <> </>)} */}
+      {completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>)}
     </>
   )
 }
