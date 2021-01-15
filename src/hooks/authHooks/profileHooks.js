@@ -13,6 +13,7 @@ export const useProfile = () => {
   const userItems = useSelector(getUserItems)
   const starredGoals = userItems.starredGoals
   const createdGoals = userItems.createdGoals
+  const completedGoals = userItems.completedGoals
   
   useEffect(() => {
     if (user !== null) {
@@ -36,6 +37,7 @@ export const useProfile = () => {
     user,
     starredGoals,
     createdGoals,
+    completedGoals,
     loggedInOrNotGreeting
   }
 }

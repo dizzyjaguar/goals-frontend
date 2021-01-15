@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Landing extends Component {
-  render() {
+const Landing = () => {
     return (
       <div>
-        
-        GREETINGS! THIS IS THE LANDING PAGE
+        GREETINGS! THIS IS THE LANDING PAGE BUT IF A USER IS LOGGED IN IT SHOULD LOAD A HOME PAGE INSTEAD OF CURRENT GOALS ETC
       </div>
     )
-  }
 }
+
+export default Landing;

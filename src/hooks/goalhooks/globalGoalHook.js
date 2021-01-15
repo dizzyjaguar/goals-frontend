@@ -83,7 +83,7 @@ export const useGlobalGoals = () => {
     } else if(!isComplete) {
       return <button onClick={() => handleCompleteGoal(goal)}> Complete </button>
     } else if(isComplete) {
-      return <button>Completed</button>
+      return <span>Completed</span>
     }
   };
 

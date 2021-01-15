@@ -1,8 +1,18 @@
 import { signupRequest, logoutRequest, loginRequest, verifyRequest } from '../services/Auth/authServices';
+import { getUserByIdRequest } from '../services/User/userServices';
 
 export const SET_USER_LOADING = 'SET_USER_LOADING';
 
 export const SET_USER = 'SET_USER';
+
+export const getUserByIdRedux = (user) => dispatch => {
+  dispatch({ type: SET_USER_LOADING });
+  return getUserByIdRequest(user)
+    .then(res => {
+      dispatch({ type: SET_USER, payload: res })
+    })
+}
+
 export const signupRedux = (newUser) => dispatch => {
   dispatch({ type: SET_USER_LOADING });
   return signupRequest(newUser)
