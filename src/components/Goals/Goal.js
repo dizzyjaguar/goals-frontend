@@ -11,6 +11,7 @@ const Goal = ({ goal, detailOrNot }) => {
   
   return (
     <>
+      Implement infinite scrolling and a search bar to search for key words
       <div className='Goal'>
           {
             window.location.href.includes('goals') 
