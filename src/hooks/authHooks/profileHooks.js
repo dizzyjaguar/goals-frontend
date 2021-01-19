@@ -15,6 +15,7 @@ export const useProfile = () => {
   const createdGoals = userItems.createdGoals
   const completedGoals = userItems.completedGoals
   
+  
   useEffect(() => {
     if (user !== null) {
       dispatch(setUserStars())

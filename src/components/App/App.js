@@ -16,11 +16,14 @@ import GoalList from '../Goals/GoalList';
 import GoalDetail from '../Goals/GoalDetail';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
 import Dashboard from '../Dashboard/Dashboard';
+import { useSelector } from 'react-redux';
+import { getUser } from '../../selectors/authSelector';
 
 
 
 export default function App() {
-  const { user } = useProfile();
+  const user = useSelector(getUser)
+  // let user = null;
   
   return (
     <Router>
