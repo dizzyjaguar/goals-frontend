@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
+import PieChart from '../Chart/PieChart';
 
 const Profile = () => {
   const { user, starredGoals, createdGoals, completedGoals, userProfileGreeting } = useProfile();
@@ -16,6 +17,8 @@ const Profile = () => {
     Use chart js to show how many goals started 'starred', goals completed, goals created, insights provided, etc, as many posative interactions basically
     Try to encourage productive behaviour based on what stats are shown
     {userProfileGreeting()}
+
+    <PieChart />
     
     </>
   )
