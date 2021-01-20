@@ -1,18 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUserByIdRedux } from '../../actions/authActions';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
 
 const Dashboard = () => {
-  const { user } = useProfile();
+  const { user, starredGoals, completedGoals } = useProfile();
   const dispatch = useDispatch();
+  const [menuItems, setMenuItems] = useState([starredGoals, completedGoals ])
+  const [menuCursor, setMenuCursor] = useState(0)
+
   
   useEffect(() => {
     dispatch(getUserByIdRedux(user))
   }, [])
+
+  
+  
+
   return (
       <>
-        This is the user Dashboard
+        <h1>Greetings {user.username}</h1>
+        <div className='DashboardGoals'>
+          {menuCursor === 0 ? <h1>CURRENT GOALS</h1> 
+          : menuCursor === 1 ? <h1>COMPLETED GOALS</h1>
+          : <></>
+          }
+          <button onClick={() => setMenuCursor(0)}>{'<'}</button>
+          <button onClick={() => setMenuCursor(1)}>{'>'}</button>
+          
+        </div>
+        
       </>
   )
 }
