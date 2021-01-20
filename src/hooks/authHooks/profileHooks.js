@@ -26,17 +26,20 @@ export const useProfile = () => {
     }
   }, [user]);
 
-  const loggedInOrNotGreeting = () => {
+  const userProfileGreeting = () => {
     if(user !== null) {
-      return <h1>hello {user.username}</h1>
+      return <h1> {user.username}'s GOALS and STATS</h1>
     } else {
-      return <h2> You need an account for anything cool </h2>
+      return <h2> You need an account to view this </h2>
     }
   };
 
   const starredGoalNodes = starredGoals.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}  >{goal.goal.title}</Link> <br/> </>);
 
-  const completedGoalNodes = completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>)
+  const completedGoalNodes = completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>);
+
+  const createdGoalNodes = createdGoals.map((goal) => <> <Link to={`/global/goal/${goal._id}`}> {goal.title} </Link> <br/> </> );
+
 
 
   return {
@@ -46,6 +49,7 @@ export const useProfile = () => {
     completedGoals,
     starredGoalNodes,
     completedGoalNodes,
-    loggedInOrNotGreeting
+    createdGoalNodes,
+    userProfileGreeting,
   }
 }

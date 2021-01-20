@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
 
 const Profile = () => {
-  const { user, starredGoals, createdGoals, completedGoals, loggedInOrNotGreeting } = useProfile();
+  const { user, starredGoals, createdGoals, completedGoals, userProfileGreeting } = useProfile();
   console.log(createdGoals)
   console.log(starredGoals)
 
@@ -15,16 +15,8 @@ const Profile = () => {
 
     Use chart js to show how many goals started 'starred', goals completed, goals created, insights provided, etc, as many posative interactions basically
     Try to encourage productive behaviour based on what stats are shown
-    {loggedInOrNotGreeting()}
-    <h2>Created Goals</h2>
-      {createdGoals.map((goal) => <> <Link to={`/global/goal/${goal._id}`}> {goal.title} </Link> <br/> </> )}
-    <h2>Starred Goals</h2>
-    <div>
-      {starredGoals.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}  >{goal.goal.title}</Link> <br/> </>)}
-    </div>
-
-    <h2>Completed Goals</h2>
-      {completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>)}
+    {userProfileGreeting()}
+    
     </>
   )
 }
