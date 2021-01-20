@@ -5,6 +5,7 @@ import { setUserStars } from '../../actions/starActions';
 import { useVerifyUser } from './currentHooks';
 import { getUserItems } from '../../selectors/userSelector';
 import { setUserGoalsRedux } from '../../actions/goalActions';
+import { Link } from 'react-router-dom';
 
 
 export const useProfile = () => {
@@ -33,12 +34,18 @@ export const useProfile = () => {
     }
   };
 
+  const starredGoalNodes = starredGoals.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}  >{goal.goal.title}</Link> <br/> </>);
+
+  const completedGoalNodes = completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>)
+
 
   return {
     user,
     starredGoals,
     createdGoals,
     completedGoals,
+    starredGoalNodes,
+    completedGoalNodes,
     loggedInOrNotGreeting
   }
 }
