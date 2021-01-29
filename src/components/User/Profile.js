@@ -17,8 +17,13 @@ const Profile = () => {
     Use chart js to show how many goals started 'starred', goals completed, goals created, insights provided, etc, as many posative interactions basically
     Try to encourage productive behaviour based on what stats are shown
     {userProfileGreeting()}
-
-    <PieChart />
+    this could also compare in another larger chart how many posative actions the user has done in comparison to all the actions in the system of all users
+    <PieChart
+      createdGoals={createdGoals}
+      currentGoals={starredGoals}
+      completedGoals={completedGoals}
+      insights={5}
+    />
     
     </>
   )

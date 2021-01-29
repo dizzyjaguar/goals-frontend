@@ -1,6 +1,6 @@
 import { postStarRequest, getAllStarsRequest, deleteStarRequest } from '../services/Stars/starServices';
 
-//this might need to be changed once i fix up the backend route to only grab stars created by the current user.... actually now looking the route should already do that 
+
 export const SET_USER_STARS = 'SET_USER_STARS';
 export const setUserStars = () => dispatch => {
   return getAllStarsRequest()

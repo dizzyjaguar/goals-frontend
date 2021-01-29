@@ -22,7 +22,7 @@ const Dashboard = () => {
       <>
         <h1>Greetings {user.username}</h1>
         <div className='DashboardGoals'>
-          {menuCursor === 0 ? <> <h1>CURRENT GOALS</h1> <br/> {starredGoalNodes} </>
+          {menuCursor === 0 ? <> <h1>STARRED GOALS</h1> <br/> {starredGoalNodes} </>
           : menuCursor === 1 ? <> <h1>COMPLETED GOALS</h1> <br/> {completedGoalNodes} </>
           : <></>
           }

@@ -72,7 +72,10 @@ export const useGlobalGoals = () => {
 
   const completedButton = (goal) => {
     let isComplete;
-    if(user) {
+
+
+    let isStar = starredGoals.find(star => star.goal === goal._id || star.goal.id === goal._id);
+    if(user && isStar) {
       isComplete = completedGoals.find(completedGoal => completedGoal === goal._id || completedGoal._id === goal._id);
     } else {
       return

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2'
 
-const PieChart = () => {
+const PieChart = ({ createdGoals, currentGoals, completedGoals, insights }) => {
 
-  const data = [12, 19, 3, 5];
+  const data = [createdGoals.length, currentGoals.length, completedGoals.length, insights];
   const backgroundColors = [
     'rgba(255, 99, 132, 0.2)',
     'rgba(54, 162, 235, 0.2)',
@@ -31,7 +31,7 @@ const PieChart = () => {
       <>
         <Pie 
           data={{
-            labels: ['Created Goals', 'Current Goals', 'Completed Goals', 'Insights'],
+            labels: ['Created Goals', 'Starred Goals', 'Completed Goals', 'Insights'],
             datasets: [
               {
                 data: data,
