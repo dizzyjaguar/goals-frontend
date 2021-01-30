@@ -4,7 +4,7 @@ import { getUser } from '../../selectors/authSelector';
 import { setUserStars } from '../../actions/starActions';
 import { useVerifyUser } from './currentHooks';
 import { getUserItems } from '../../selectors/userSelector';
-import { setUserGoalsRedux } from '../../actions/goalActions';
+import { setCurrentGoals, setUserGoalsRedux } from '../../actions/goalActions';
 import { Link } from 'react-router-dom';
 
 
@@ -15,12 +15,14 @@ export const useProfile = () => {
   const starredGoals = userItems.starredGoals
   const createdGoals = userItems.createdGoals
   const completedGoals = userItems.completedGoals
+  const currentGoals = userItems.currentGoals
   
   
   useEffect(() => {
     if (user !== null) {
       dispatch(setUserStars())
       dispatch(setUserGoalsRedux(user._id))
+      dispatch(setCurrentGoals(starredGoals))
     } else {
       return;
     }
@@ -40,6 +42,10 @@ export const useProfile = () => {
 
   const createdGoalNodes = createdGoals.map((goal) => <> <Link to={`/global/goal/${goal._id}`}> {goal.title} </Link> <br/> </> );
 
+  const currentGoalNodes = currentGoals?.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}> {goal.goal.title} </Link> <br/> </> );
+
+
+
 
 
   return {
@@ -47,9 +53,11 @@ export const useProfile = () => {
     starredGoals,
     createdGoals,
     completedGoals,
+    currentGoals,
     starredGoalNodes,
     completedGoalNodes,
     createdGoalNodes,
+    currentGoalNodes,
     userProfileGreeting,
   }
 }

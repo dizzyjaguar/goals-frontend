@@ -1,5 +1,5 @@
 import { LOGOUT, SET_USER } from '../actions/authActions';
-import { COMPLETE_GOAL, SET_USER_GOALS } from '../actions/goalActions';
+import { COMPLETE_GOAL, SET_CURRENT_GOALS, SET_USER_GOALS } from '../actions/goalActions';
 import { SET_USER_STARS, CREATE_STAR, DELETE_STAR } from '../actions/starActions';
 
 const intitialState = {
@@ -23,6 +23,10 @@ export default function reducer(state = intitialState, action) {
     case LOGOUT:
       return {
         ...state, completedGoal: [], currentGoals: [], createdGoals: [], starredGoals: []
+      }
+    case SET_CURRENT_GOALS:
+      return {
+        ...state, currentGoals: action.payload.filter(star => star.complete === false)
       }
     case COMPLETE_GOAL:
       return {

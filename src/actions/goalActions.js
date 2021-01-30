@@ -16,13 +16,13 @@ export const setGlobalGoalRedux = (id) => dispatch => {
     });
 };
 
-// figure out the logic to compare the starred goals and completed goals and withdraw the ones that are starred but not completed
-// export const SET_CURRENT_GOALS = 'SET_CURRENT_GOALS';
-// export const setCurrentGoalsRedux = (starred, completed) => dispatch => {
-//   const getCurrentGoals = (starred, completed) => {
-//     let current = starred.filter(goal => )
-//   }
-// }
+//figure out how to dispatch this 
+export const SET_CURRENT_GOALS = 'SET_CURRENT_GOALS';
+export const setCurrentGoals = (starred) => ({
+  type: SET_CURRENT_GOALS,
+  payload: starred
+});
+  
 
 export const SET_USER_GOALS = 'SET_USER_GOALS';
 export const setUserGoalsRedux = (user) => dispatch => {
