@@ -30,7 +30,7 @@ export const useProfile = () => {
 
   const userProfileGreeting = () => {
     if(user !== null) {
-      return <h1> {user.username}'s GOALS and STATS</h1>
+      return <h1> {user.username}'s Stats</h1>
     } else {
       return <h2> You need an account to view this </h2>
     }

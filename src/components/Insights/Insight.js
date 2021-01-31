@@ -5,7 +5,7 @@ const Insight = ({ insight }) => {
     <>
       <div className='Insights'>
         <p>{insight.insight}</p>
-        <p>by: {insight.insightBy.username}</p>
+        <p>by: {insight.insightBy.username || insight.username}</p>
       </div>
     </>
   )

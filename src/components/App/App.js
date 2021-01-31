@@ -44,7 +44,7 @@ export default function App() {
           <Route exact path='/login'>
             {user ? <Dashboard /> : <Login />}
           </Route>
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/profile/:user' component={Profile} />
           <Route exact path='/global/goals' component={GoalList} />
           <Route exact path='/global/goal/:_id' component={GoalDetail} />
           {/* <Route exact path='/tests/form' component={} /> */}

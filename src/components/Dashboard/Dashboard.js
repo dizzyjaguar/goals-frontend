@@ -15,7 +15,7 @@ const Dashboard = () => {
     dispatch(getUserByIdRedux(user))
   }, [])
 
-  
+  // for some reason the currentGoal nodes arent updating when going just from the main goals page to the dashboard, need to inspect why, sometimes it looks like its working too
 
   return (
       <>

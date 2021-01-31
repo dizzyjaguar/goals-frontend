@@ -31,7 +31,7 @@ const PieChart = ({ createdGoals, currentGoals, completedGoals, insights }) => {
       <>
         <Pie 
           data={{
-            labels: ['Created Goals', 'Starred Goals', 'Completed Goals', 'Insights'],
+            labels: ['Created Goals', 'Current Goals', 'Completed Goals', 'Insights'],
             datasets: [
               {
                 data: data,

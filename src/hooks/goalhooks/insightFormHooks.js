@@ -20,6 +20,7 @@ export const useInsightHooks = () => {
   const handleSubmit = async(goal) => {
     const insightObj = {
       insightBy: user._id,
+      username: user.username,
       goalPost: goal._id,
       insight: insightValue
     }

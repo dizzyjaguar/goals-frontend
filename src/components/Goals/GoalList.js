@@ -6,7 +6,7 @@ const GoalList = () => {
   const { goalNodes } = useGlobalGoals();
   return (
     <>
-    Implement infinite scrolling and a search bar to search for key words
+    {/* Implement infinite scrolling and a search bar to search for key words */}
       <CreateGoal />
       {goalNodes}
     </>

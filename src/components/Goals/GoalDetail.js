@@ -11,7 +11,11 @@ const GoalDetail = () => {
         goal={goal}
         detailOrNot={true}
       />
-    <button onClick={() => handleShowMoreInsights()}> Comments </button>
+      {
+        goal?.insights?.length > 0 ? <button onClick={() => handleShowMoreInsights()}> Comments </button> 
+        : <> </>
+      }
+    {/* <button onClick={() => handleShowMoreInsights()}> Comments </button> */}
     {insightNodes}
     </>
   )
