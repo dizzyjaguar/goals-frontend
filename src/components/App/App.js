@@ -22,9 +22,9 @@ import { getUser } from '../../selectors/authSelector';
 
 
 export default function App() {
-  // const user = useSelector(getUser)
+  const user = useSelector(getUser)
   // this is only too not need to keep loggin in for each session when the code refreshes
-  const { user } = useProfile()
+  // const { user } = useProfile()
   
   return (
     <Router>
