@@ -16,7 +16,7 @@ export const useCurrent = () => {
       <Link to='/'>Home</Link>
       <Link to='/global/goals'>Global</Link>
       {/* make username at the end of profile link, might need to be done in Route on App */}
-      <Link to='/profile'>Profile</Link>
+      <Link to={`/profile/${user._id}`}>Profile</Link>
       <Link to='/about'>About</Link>
       <Link onClick={handleLogout}>Logout</Link>
     </div>

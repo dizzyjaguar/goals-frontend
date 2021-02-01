@@ -4,7 +4,8 @@ import { getUser } from '../../selectors/authSelector';
 import { setUserStars } from '../../actions/starActions';
 import { useVerifyUser } from './currentHooks';
 import { getUserItems } from '../../selectors/userSelector';
-import { setUserGoalsRedux } from '../../actions/goalActions';
+import { setCurrentGoals, setUserGoalsRedux } from '../../actions/goalActions';
+import { Link } from 'react-router-dom';
 
 
 export const useProfile = () => {
@@ -14,23 +15,37 @@ export const useProfile = () => {
   const starredGoals = userItems.starredGoals
   const createdGoals = userItems.createdGoals
   const completedGoals = userItems.completedGoals
+  const currentGoals = userItems.currentGoals
+  
   
   useEffect(() => {
     if (user !== null) {
       dispatch(setUserStars())
       dispatch(setUserGoalsRedux(user._id))
+      dispatch(setCurrentGoals(starredGoals))
     } else {
       return;
     }
   }, [user]);
 
-  const loggedInOrNotGreeting = () => {
+  const userProfileGreeting = () => {
     if(user !== null) {
-      return <h1>hello {user.username}</h1>
+      return <h1> {user.username}'s Stats</h1>
     } else {
-      return <h2> You need an account for anything cool </h2>
+      return <h2> You need an account to view this </h2>
     }
   };
+
+  const starredGoalNodes = starredGoals.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}  >{goal.goal.title}</Link> <br/> </>);
+
+  const completedGoalNodes = completedGoals?.map((goal) => <> <Link to={`/global/goal/${goal._id}`}  >{goal.title}</Link> <br /> </>);
+
+  const createdGoalNodes = createdGoals.map((goal) => <> <Link to={`/global/goal/${goal._id}`}> {goal.title} </Link> <br/> </> );
+
+  const currentGoalNodes = currentGoals?.map((goal) => <> <Link to={`/global/goal/${goal.goal._id}`}> {goal.goal.title} </Link> <br/> </> );
+
+
+
 
 
   return {
@@ -38,6 +53,11 @@ export const useProfile = () => {
     starredGoals,
     createdGoals,
     completedGoals,
-    loggedInOrNotGreeting
+    currentGoals,
+    starredGoalNodes,
+    completedGoalNodes,
+    createdGoalNodes,
+    currentGoalNodes,
+    userProfileGreeting,
   }
 }

@@ -16,11 +16,15 @@ import GoalList from '../Goals/GoalList';
 import GoalDetail from '../Goals/GoalDetail';
 import { useProfile } from '../../hooks/authHooks/profileHooks';
 import Dashboard from '../Dashboard/Dashboard';
+import { useSelector } from 'react-redux';
+import { getUser } from '../../selectors/authSelector';
 
 
 
 export default function App() {
-  const { user } = useProfile();
+  const user = useSelector(getUser)
+  // this is only too not need to keep loggin in for each session when the code refreshes
+  // const { user } = useProfile()
   
   return (
     <Router>
@@ -34,11 +38,13 @@ export default function App() {
             {user ? <Dashboard /> : <Landing /> }
           </Route>
           <Route exact path='/about' component={About} />
-          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/signup' component={Signup}>
+          {user ? <Dashboard /> : <Signup />}
+          </Route>
           <Route exact path='/login'>
             {user ? <Dashboard /> : <Login />}
           </Route>
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/profile/:user' component={Profile} />
           <Route exact path='/global/goals' component={GoalList} />
           <Route exact path='/global/goal/:_id' component={GoalDetail} />
           {/* <Route exact path='/tests/form' component={} /> */}

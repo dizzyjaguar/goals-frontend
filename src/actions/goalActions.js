@@ -16,6 +16,14 @@ export const setGlobalGoalRedux = (id) => dispatch => {
     });
 };
 
+//figure out how to dispatch this 
+export const SET_CURRENT_GOALS = 'SET_CURRENT_GOALS';
+export const setCurrentGoals = (starred) => ({
+  type: SET_CURRENT_GOALS,
+  payload: starred
+});
+  
+
 export const SET_USER_GOALS = 'SET_USER_GOALS';
 export const setUserGoalsRedux = (user) => dispatch => {
   return getAllGoalsByUserRequest(user)
